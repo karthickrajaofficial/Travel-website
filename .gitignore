@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+bgv.mp4
+bgv2.mp4
 
 # Editor directories and files
 .vscode/*
