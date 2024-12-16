@@ -7,6 +7,10 @@ const PackageSection = () => {
     { name: 'Maldivs', image: '02.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Maldivs Beach', price: '$1200' },
     { name: 'Bhutan', image: '03.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Bhutan City', price: '$1200' },
     { name: 'Paris', image: '04.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Paris City', price: '$1200' },
+    { name: 'Greece', image: '01.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Greece City', price: '$1200' },
+    { name: 'Maldivs', image: '02.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Maldivs Beach', price: '$1200' },
+    { name: 'Bhutan', image: '03.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Bhutan City', price: '$1200' },
+    { name: 'Paris', image: '04.jpg', description: '4 Day’s 3 Night', title: 'Enjoy the Beauty place in Paris City', price: '$1200' },
   ];
 
   return (
@@ -46,6 +50,12 @@ const PackageSection = () => {
             </div>
           ))}
         </div>
+        <div className="flex flex-1 gap-5 py-5 justify-center ">
+            <button className="bg-primary rounded transition-bg shadow h-16 lg:px-10 lg:w-auto w-full outline-none text-white hover:bg-white hover:text-primary">
+              Get All Packages
+            </button>
+            
+          </div>
       </div>
     </div>
   );

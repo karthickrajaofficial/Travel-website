@@ -10,12 +10,12 @@ const Home = () => {
     <div>
       <Hero />
       <FeatureSection />
-      <PackageSection />
+      {/* <PackageSection /> */}
       {/* Uncomment if you want to display these sections */}
       {/* <TravelSection /> */}
       {/* <PackageSection /> */}
-      <GallerySection />
-      <OfferSection />
+      {/* <GallerySection /> */}
+      {/* <OfferSection /> */}
       {/* <Testimonial /> */}
     </div>
   );

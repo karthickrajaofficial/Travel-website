@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { FaCity, FaGlobeAsia, FaPlane, FaMountain } from "react-icons/fa";
 import { GiWorld, GiPalmTree, GiLion } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Menu = ({ onClose }) => {
+const Menu = () => {
   const [currentCategory, setCurrentCategory] = useState(null);
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -40,7 +39,6 @@ const Menu = ({ onClose }) => {
   // Navigate to destination
   const handleNavigate = (destination) => {
     navigate(`/tours/${destination.toLowerCase().replace(/ /g, "-")}`);
-    onClose(); // Close the menu after navigation
   };
 
   // Go back to main menu
@@ -52,7 +50,8 @@ const Menu = ({ onClose }) => {
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        onClose();
+        // Close the menu (you can set visibility state if needed)
+        setCurrentCategory(null); // Reset to main menu
       }
     };
 
@@ -60,7 +59,7 @@ const Menu = ({ onClose }) => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [onClose]);
+  }, []);
 
   return (
     <div
@@ -68,24 +67,7 @@ const Menu = ({ onClose }) => {
       ref={menuRef}
     >
       <div className="max-w-[1400px] mx-auto px-4 py-6 relative">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-600 transition-transform transform hover:scale-110 focus:ring-1 focus:ring-black focus:outline-none group"
-          aria-label="Close Menu"
-        >
-          <div className="relative">
-            <span className="absolute inset-0 w-10 h-10 rounded-full bg-gray-100 opacity-0 group-hover:opacity-100 transition-transform transform group-hover:scale-125"></span>
-            <AiOutlineClose
-              className="w-6 h-6 relative z-10 transform transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110"
-            />
-          </div>
-        </button>
-
-        {/* Menu Title */}
-        <h3 className="text-xl font-semibold mb-6 text-gray-800">
-          {/* {currentCategory ? currentCategory : "Tour Categories"} */}
-        </h3>
+      
 
         {/* Back Button */}
         {currentCategory && (
@@ -113,7 +95,7 @@ const Menu = ({ onClose }) => {
                 className="flex items-center text-left text-gray-700 hover:text-primary transition w-full p-2 rounded-lg hover:bg-gray-100"
               >
                 {currentCategory ? (
-                  <FaPlane className="mr-2 text-primary" />
+                  <FaCity className="mr-2 text-primary" />
                 ) : (
                   categoryIcons[item]
                 )}
@@ -125,10 +107,6 @@ const Menu = ({ onClose }) => {
       </div>
     </div>
   );
-};
-
-Menu.propTypes = {
-  onClose: PropTypes.func.isRequired,
 };
 
 export default Menu;

@@ -15,25 +15,31 @@ export default {
         orange: "#FA9556",       // Custom orange color
       },
       fontFamily: {
-        // Example of adding a custom font
-        sans: ['"Inter"', 'sans-serif'], 
-        // Add more fonts here as needed
+        sans: ['"Inter"', 'sans-serif'], // Custom font family for text
       },
       spacing: {
-        // You can add custom spacing sizes here if required
-        '128': '32rem', 
-        '144': '36rem',
+        '128': '32rem',  // Custom spacing size
+        '144': '36rem',  // Custom spacing size
+        'screen': '100vh', // Ensure full height for screens
       },
       screens: {
-        // Custom breakpoints can be added
-        'xl': '1440px',  // Example of overriding a screen size
+        'xl': '1440px',   // Override for larger screens
+        '2xl': '1536px',  // Custom breakpoint for even larger screens
       },
       boxShadow: {
-        // Custom box shadows
-        'custom-light': '0 4px 6px rgba(0, 0, 0, 0.1)',
-        'custom-dark': '0 10px 15px rgba(0, 0, 0, 0.1)',
-      }
+        'custom-light': '0 4px 6px rgba(0, 0, 0, 0.1)', // Light custom shadow
+        'custom-dark': '0 10px 15px rgba(0, 0, 0, 0.1)', // Dark custom shadow
+      },
+      transitionDuration: {
+        '1000': '1000ms', // Custom transition duration for smooth scrolling
+      },
+      animation: {
+        // Custom animations if you want smoother transitions for carousel or slides
+        'fade': 'fadeIn 1s ease-out',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    // Add any required plugins here, e.g., for forms, typography, etc.
+  ],
 }
