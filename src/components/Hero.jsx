@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,47 +14,62 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-screen overflow-hidden">
-      {/* Image container to scroll vertically */}
-      <div
-        className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateY(-${currentIndex * 100}%)`, // Scroll one image at a time
-        }}
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Image container to scroll horizontally */}
+      <motion.div
+        className="flex absolute inset-0 h-full"
+        animate={{ x: `-${currentIndex * 100}vw` }} // Scroll horizontally from right to left
+        transition={{ duration: 1, ease: 'easeInOut' }}
+        style={{ width: '400vw' }} // Set container width to 400% of the viewport width (4 images)
       >
         {/* Slide 1 */}
-        <div className="w-full h-screen bg-[url('/paris1.jpg')] bg-no-repeat bg-cover bg-center"></div>
+        <div className="w-screen h-full bg-[url('/paris1.jpg')] bg-no-repeat bg-cover bg-center"></div>
         {/* Slide 2 */}
-        <div className="w-full h-screen bg-[url('/paris2.jpg')] bg-no-repeat bg-cover bg-center"></div>
+        <div className="w-screen h-full bg-[url('/paris2.jpg')] bg-no-repeat bg-cover bg-center"></div>
         {/* Slide 3 */}
-        <div className="w-full h-screen bg-[url('/pariss3.jpg')] bg-no-repeat bg-cover bg-center"></div>
+        <div className="w-screen h-full bg-[url('/pariss3.jpg')] bg-no-repeat bg-cover bg-center"></div>
         {/* Slide 4 */}
-        <div className="w-full h-screen bg-[url('/paris4.jpg')] bg-no-repeat bg-cover bg-center"></div>
-      </div>
+        <div className="w-screen h-full bg-[url('/paris4.jpg')] bg-no-repeat bg-cover bg-center"></div>
+      </motion.div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+      {/* <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div> */}
 
       {/* Content Section */}
       <div className="relative z-20 h-full flex items-center max-w-[1400px] mx-auto px-6">
         {/* Left Section - Text */}
-        <div className="lg:w-2/5">
-          <h2 className="xl:text-[4rem] lg:text-5xl text-4xl lg:text-left text-center font-bold leading-snug mb-5 text-white">
+        <motion.div
+          className="lg:w-2/5"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {/* <h2 className="xl:text-[4rem] lg:text-5xl text-4xl lg:text-left text-center font-bold leading-snug mb-5 text-white">
             It's a Big World Out There, Go Explore
-          </h2>
-          <p className="text-white leading-normal mb-8 text-center lg:text-left">
+          </h2> */}
+          {/* <p className="text-white leading-normal mb-8 text-center lg:text-left">
             Conveniently customize proactive web services for leveraged without
             continually aggregate frictionless solutions.
-          </p>
+          </p> */}
           <div className="flex flex-1 gap-5 justify-center lg:justify-start">
-            <button className="bg-primary rounded transition-bg shadow h-16 lg:px-10 lg:w-auto w-full outline-none text-white hover:bg-white hover:text-primary">
+            {/* Button 1 */}
+            {/* <motion.button
+              className="bg-primary rounded transition-bg shadow h-16 lg:px-10 lg:w-auto w-full outline-none text-white hover:bg-white hover:text-primary"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
               Get Exploration
-            </button>
-            <button className="bg-white rounded transition-bg shadow h-16 lg:px-10 lg:w-auto w-full outline-none text-primary hover:bg-primary hover:text-white">
+            </motion.button> */}
+            {/* Button 2 */}
+            {/* <motion.button
+              className="bg-white rounded transition-bg shadow h-16 lg:px-10 lg:w-auto w-full outline-none text-primary hover:bg-primary hover:text-white"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
               Read More
-            </button>
+            </motion.button> */}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

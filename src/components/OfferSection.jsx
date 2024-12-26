@@ -24,7 +24,7 @@ const OfferSection = () => {
           <div className="col-lg-6 wow fadeInRight" data-wow-duration="1.5s" data-wow-delay=".5s">
             <div className="offer__content text-center py-8">
               <img src="offer/02.png" alt="travel thumb" />
-              <img src="offer/03.png" alt="travel thumb" className="mb-4" />
+              {/* <img src="offer/03.png" alt="travel thumb" className="mb-4" /> */}
               <p className="text-gray-700">
                 Conveniently customize proactive web services for leveraged without continual services aggregate frictionless
                 out wellies Richard. And very aggregate frictionless out wellies customize continually.

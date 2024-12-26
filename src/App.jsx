@@ -12,6 +12,11 @@ import AboutSection from './pages/AboutSection';
 import TestimonialsSection from './pages/TestimonialsSection';
 import TourSection from './components/TourSection';
 import Tour from './components/Tour';
+import TourPackages from './components/TourPackages';
+import TourDetails from './components/TourCategory';
+import TourCategory from './components/TourCategory';
+import TourDetail from './pages/TourDetail';
+import GallerySection from './components/GallerySection';
 
 const App = () => {
   return (
@@ -22,17 +27,21 @@ const App = () => {
      
         <Route path="/home" element={<Home />} /> 
         <Route path="/" element={<Home />} /> 
-       <Route path="/tours" element={<Tours />} /> 
+       {/* <Route path="/tours" element={<Tours />} />  */}
        <Route path="/about" element={<AboutSection />} /> 
-        <Route path="/contact" element={<Contact />} />  
-        <Route path="/Testimonials" element={<TestimonialsSection />} />  
+        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/" element={<TourPackages />} /> */}
+        <Route path="/tours/:categoryName" element={<TourCategory />} />
+        <Route path="/tours/:categoryName" element={<TourCategory />} />  
+        <Route path="/testimonials" element={<GallerySection/>} />  
         {/* <Route path="/TourSection" element={<TourSection />} /> */}
-        <Route path="/tours/:packageName" element={<TourSection />} />
+        {/* <Route path="/tours/:packageName" element={<TourSection />} /> */}
         {/* <Route path="/TourSection" element={<Tour/>} /> */}
+        <Route path="/tour/:tourId" element={<TourDetail />} />
         <Route path="/details/:id" element={<Details />}/>
       </Routes>
       
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 };

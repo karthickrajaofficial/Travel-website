@@ -5,6 +5,7 @@ const TestimonialsSection = () => {
   return (
     <div>
         <Banner/>
+        
     </div>
   )
 }
