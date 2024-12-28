@@ -9,7 +9,7 @@ const tourPackages = [
         description: "Trek through majestic mountain ranges.",
         price: "$500",
         duration: "3 Days",
-        image: "images/solo/mountain-explorer.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 2,
@@ -17,7 +17,7 @@ const tourPackages = [
         description: "Experience the thrill of desert adventures.",
         price: "$700",
         duration: "5 Days",
-        image: "images/solo/desert-safari.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 3,
@@ -25,7 +25,7 @@ const tourPackages = [
         description: "Immerse yourself in the tranquility of nature.",
         price: "$450",
         duration: "4 Days",
-        image: "images/solo/forest-escape.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 4,
@@ -33,7 +33,7 @@ const tourPackages = [
         description: "Relax by serene lakes and enjoy peaceful surroundings.",
         price: "$550",
         duration: "4 Days",
-        image: "images/solo/lakefront-retreat.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 5,
@@ -41,7 +41,7 @@ const tourPackages = [
         description: "Climb and hike the highest peaks for an unforgettable experience.",
         price: "$600",
         duration: "5 Days",
-        image: "images/solo/mountain-adventure.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 6,
@@ -49,7 +49,7 @@ const tourPackages = [
         description: "Experience the thrill of wildlife and nature.",
         price: "$650",
         duration: "6 Days",
-        image: "images/solo/jungle-safari.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 7,
@@ -57,7 +57,7 @@ const tourPackages = [
         description: "Venture into the coldest places on Earth.",
         price: "$900",
         duration: "7 Days",
-        image: "images/solo/arctic-expedition.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 8,
@@ -65,7 +65,7 @@ const tourPackages = [
         description: "Traverse through sand dunes and remote deserts.",
         price: "$800",
         duration: "6 Days",
-        image: "images/solo/desert-trek.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 9,
@@ -73,7 +73,7 @@ const tourPackages = [
         description: "Explore the islands and beaches in tropical paradise.",
         price: "$700",
         duration: "5 Days",
-        image: "images/solo/tropical-adventure.jpg",
+        image: "TourPackages/moutain.jpg",
       },
       {
         id: 10,
@@ -81,7 +81,7 @@ const tourPackages = [
         description: "Trek through volcanic landscapes and lava fields.",
         price: "$750",
         duration: "6 Days",
-        image: "images/solo/volcano-hiking.jpg",
+        image: "TourPackages/moutain.jpg",
       },
     ],
   },
@@ -271,48 +271,48 @@ const tourPackages = [
       },
     ],
   },
-  {
-    id: 5,
-    name: "Australia",
-    tours: [
-      {
-        id: 1,
-        name: "Australia",
-        description: "Venture deep into the wild Amazon rainforest.",
-        price: "$2,300",
-        duration: "8 Days",
-        image: "images/adventure/amazon-rainforest.jpg",
-      }
-    ],
-  },
-  {
-    id: 6,
-    name: "Bhutan",
-    tours: [
-      {
-        id: 1,
-        name: "Bhutan",
-        description: "Venture deep into the wild Amazon rainforest.",
-        price: "$2,300",
-        duration: "8 Days",
-        image: "images/adventure/amazon-rainforest.jpg",
-      }
-    ],
-  },
-  {
-    id: 7,
-    name: "India",
-    tours: [
-      {
-        id: 1,
-        name: "India",
-        description: "Venture deep into the wild Amazon rainforest.",
-        price: "$2,300",
-        duration: "8 Days",
-        image: "images/adventure/amazon-rainforest.jpg",
-      }
-    ],
-  },
+  // {
+  //   id: 5,
+  //   name: "Australia",
+  //   tours: [
+  //     {
+  //       id: 1,
+  //       name: "Australia",
+  //       description: "Venture deep into the wild Amazon rainforest.",
+  //       price: "$2,300",
+  //       duration: "8 Days",
+  //       image: "images/adventure/amazon-rainforest.jpg",
+  //     }
+  //   ],
+  // },
+  // {
+  //   id: 6,
+  //   name: "Bhutan",
+  //   tours: [
+  //     {
+  //       id: 1,
+  //       name: "Bhutan",
+  //       description: "Venture deep into the wild Amazon rainforest.",
+  //       price: "$2,300",
+  //       duration: "8 Days",
+  //       image: "images/adventure/amazon-rainforest.jpg",
+  //     }
+  //   ],
+  // },
+  // {
+  //   id: 7,
+  //   name: "India",
+  //   tours: [
+  //     {
+  //       id: 1,
+  //       name: "India",
+  //       description: "Venture deep into the wild Amazon rainforest.",
+  //       price: "$2,300",
+  //       duration: "8 Days",
+  //       image: "images/adventure/amazon-rainforest.jpg",
+  //     }
+  //   ],
+  // },
 ];
 
 export default tourPackages;

@@ -76,7 +76,7 @@ const HotelSection = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-500">
-                    <i className="fas fa-map-marker-alt text-red-500"></i>{' '}
+                    <i className="fas fa-map-marker-alt text-blue-500"></i>{' '}
                     {hotel.location}
                   </p>
                   <span className="text-lg font-bold text-blue-600">

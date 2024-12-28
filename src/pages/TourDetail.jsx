@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import tourPackages from '../data/tourPackages';  // Update the path to match your project structure
+import Banner from '../components/Banner';
 
 const TourDetail = () => {
   const { tourId } = useParams();  // Assuming you're using react-router to get the tour ID
@@ -14,13 +15,16 @@ const TourDetail = () => {
   }
 
   return (
-    <div>
+   <>
+   {/* <Banner/> */}
+   <div>
       <h2>{tour.name}</h2>
       <p>{tour.description}</p>
       <p>Price: {tour.price}</p>
       <p>Duration: {tour.duration}</p>
       <img src={tour.image} alt={tour.name} />
     </div>
+   </>
   );
 };
 

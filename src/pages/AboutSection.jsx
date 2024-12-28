@@ -1,78 +1,156 @@
 import React from "react";
-import Banner from "../components/Banner";
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+
+// Define the animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.3 } },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+};
+
+const counterVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const AboutSection = () => {
-    return (
-      <>
-        <Banner/>
-        <div className="about py-16 relative">
-            {/* Travel Shape */}
-            <div className="absolute top-0 left-0 text-gray-100 text-6xl transform -translate-y-12 -translate-x-4">
-                Travel
+  return (
+    <>
+      {/* Main Section */}
+      <div className="py-16 relative bg-gradient-to-l from-blue-200 via-blue-400 to-blue-600">
+        <div className="container mx-auto px-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          >
+            {/* About Content */}
+            <div>
+              {/* Section Header */}
+              <div className="mb-6">
+                <motion.span
+                  variants={textVariants}
+                  className="text-sm font-medium text-gray-600 uppercase tracking-wide"
+                >
+                  About Us
+                </motion.span>
+                <motion.h2
+                  variants={textVariants}
+                  className="text-4xl font-extrabold text-white mt-2 leading-tight"
+                >
+                  World’s Best Travel Agency Since 2008
+                </motion.h2>
+              </div>
+
+              {/* Section Description */}
+              <div className="mb-6">
+                <motion.p
+                  variants={textVariants}
+                  className="text-gray-100 mb-4 text-lg"
+                >
+                  We are committed to delivering exceptional travel experiences with a focus on quality, sustainability, and customer satisfaction.
+                </motion.p>
+
+                <motion.ul
+                  variants={textVariants}
+                  className="list-disc pl-5 text-gray-100 space-y-2"
+                >
+                  <li>Providing top-tier travel solutions for all kinds of travelers.</li>
+                  <li>Leading in curating unique and sustainable travel experiences.</li>
+                  <li>Dedicated to customer satisfaction and growth in the travel industry.</li>
+                </motion.ul>
+              </div>
             </div>
 
-            {/* Decorative Shape */}
-            <div className="absolute top-4 right-4">
-                <img src="assets/images/shape-img/01.png" alt="travel thumb" className="w-16" />
+            {/* About Image */}
+            <div className="hidden lg:block">
+              <motion.img
+                variants={imageVariants}
+                src="/paris1.jpg"
+                alt="Travel Agency"
+                className="w-full h-auto rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+              />
             </div>
-
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    {/* About Image */}
-                    <div className="about__thumb">
-                        <img src="about/02.png" alt="travel thumb" className="w-full rounded-lg" />
-                    </div>
-
-                    {/* About Content */}
-                    <div className="about__content">
-                        {/* Section Header */}
-                        <div className="mb-6">
-                            <span className="text-gray-600 uppercase text-sm font-medium">About us</span>
-                            <h2 className="text-3xl font-bold text-gray-800 mt-2">
-                                World Best Travel Agency Company Since 2008.
-                            </h2>
-                        </div>
-
-                        {/* Section Description */}
-                        <div className="mb-6">
-                            <p className="text-gray-600 mb-4">
-                                Continually productize compelling quality packed with elated features. Setting up websites and creating pages with ease.
-                            </p>
-
-                            <ul className="list-disc pl-5 text-gray-600 space-y-2">
-                                <li>We provide compelling quality for various needs.</li>
-                                <li>Leading in providing packed quality experiences.</li>
-                                <li>Learn how to grow with elated services.</li>
-                            </ul>
-                        </div>
-
-                        {/* About Project Stats */}
-                        <ul className="grid grid-cols-3 gap-4 text-center">
-                            <li>
-                                <h2 className="text-3xl font-bold text-gray-800">
-                                    <span className="about__project--count">20</span>+
-                                </h2>
-                                <p className="text-gray-600">Year Experience</p>
-                            </li>
-                            <li>
-                                <h2 className="text-3xl font-bold text-gray-800">
-                                    <span className="about__project--count">250</span>+
-                                </h2>
-                                <p className="text-gray-600">Destination Collaboration</p>
-                            </li>
-                            <li>
-                                <h2 className="text-3xl font-bold text-gray-800">
-                                    <span className="about__project--count">170</span>K+
-                                </h2>
-                                <p className="text-gray-600">Happy Customers</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          </motion.div>
         </div>
-        </>
-    );
+      {/* Counter Section */}
+      <div className=" text-black py-12">
+        <p className="flex items-center justify-center mb-10 text-5xl font-bold text-center">
+          Our Archeivements
+        </p>
+        <div className="container grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            variants={counterVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="flex flex-col items-center justify-center text-center"
+          >
+            <p className="text-5xl font-semibold text-yellow-300">
+              <CountUp
+                start={0}
+                end={20}
+                suffix="+"
+                duration={3}
+                enableScrollSpy={true}
+                scrollSpyOnce={true}
+              />
+            </p>
+            <p className="mt-2 text-lg">Years of Experience</p>
+          </motion.div>
+
+          <motion.div
+            variants={counterVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="flex flex-col items-center justify-center text-center"
+          >
+            <p className="text-5xl font-semibold text-yellow-300">
+              <CountUp
+                end={100}
+                separator=","
+                suffix="+"
+                duration={3}
+                enableScrollSpy={true}
+                scrollSpyOnce={true}
+              />
+            </p>
+            <p className="mt-2 text-lg">Destinations Covered</p>
+          </motion.div>
+
+          <motion.div
+            variants={counterVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="flex flex-col items-center justify-center text-center"
+          >
+            <p className="text-5xl font-semibold text-yellow-300">
+              <CountUp
+                end={100}
+                suffix="K+"
+                duration={3}
+                enableScrollSpy={true}
+                scrollSpyOnce={true}
+              />
+            </p>
+            <p className="mt-2 text-lg">Happy Customers</p>
+          </motion.div>
+        </div>
+      </div>
+      </div>
+
+    </>
+  );
 };
 
 export default AboutSection;

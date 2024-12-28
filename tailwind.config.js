@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#634789",      // Custom primary color
+        primary: "#121a2d",      // Custom primary color
         light: "#FFFFFF1A",      // Semi-transparent white
         gray: "#9DA1B4",         // Custom gray color
         lightgray: "#F4F6FA",    // Light gray background

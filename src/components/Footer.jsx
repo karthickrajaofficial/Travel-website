@@ -29,11 +29,11 @@ const Footer = () => {
   //   { id: 5, name: "Eco Tours", link: "/tours#eco-tours" },
   // ];
   const tourTypes = [
-    { label: "Solo Adventures", link: "/tours/solo-adventures" },
-    { label: "Culinary Journeys", link: "/tours/culinary-journeys" },
-    { label: "Cultural Immersion", link: "/tours/cultural-immersion" },
-    { label: "Luxury Retreats", link: "/tours/luxury-retreats" },
-    { label: "Eco Tours", link: "/tours/eco-tours" },
+    { label: "Solo Adventures", link: "/solo-adventures" },
+    { label: "Culinary Journeys", link: "/culinary-journeys" },
+    { label: "Cultural Immersion", link: "/cultural-immersion" },
+    { label: "Luxury Retreats", link: "/luxury-retreats" },
+    { label: "Eco Tours", link: "/eco-tours" },
   ];
 
   const galleryImages = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg"];
@@ -41,7 +41,7 @@ const Footer = () => {
   const contactInfo = [
     { icon: FaPhone, text: "+987654321 | +9187654321", color: "text-yellow-500" },
     { icon: FaClock, text: "Mon-Fri 09:00-6:00 (Closed on holidays)", color: "text-blue-500" },
-    { icon: FaMapMarkerAlt, text: "123 GrandEurope Avenue, Explore City", color: "text-red-500" },
+    { icon: FaMapMarkerAlt, text: "123 GrandEurope Avenue, Explore City", color: "text-blue-500" },
   ];
 
   const handleTourClick = (route) => {
@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
             {/* About Section */}
             <section>
-              <img src="logo/logo.png" alt="Travel logo" className="mb-4 w-24" />
+              <img src="logo.jpg" alt="Travel logo" className="mb-4 w-24" />
               <p className="text-sm mb-4">
                 Explore the world with us. Delivering unforgettable experiences and seamless travel journeys.
               </p>

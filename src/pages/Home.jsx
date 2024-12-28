@@ -4,11 +4,13 @@ import FeatureSection from '../components/FeatureSection';
 import PackageSection from '../components/PackageSection';
 import GallerySection from '../components/GallerySection';
 import OfferSection from '../components/OfferSection';
+import ExperienceCategories from './Categories';
 
 const Home = () => {
   return (
     <div>
       <Hero />
+      {/* <ExperienceCategories/> */}
       <FeatureSection />
       <PackageSection />
       {/* Uncomment if you want to display these sections */}
