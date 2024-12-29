@@ -531,6 +531,10 @@ const PackageSection = () => {
 
   const handlePackageClick = (path) => {
     navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const PackageCard = ({ pkg, index }) => (

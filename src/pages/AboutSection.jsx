@@ -49,7 +49,7 @@ const AboutSection = () => {
                   variants={textVariants}
                   className="text-4xl font-extrabold text-white mt-2 leading-tight"
                 >
-                  World’s Best Travel Agency Since 2008
+                  World’s Best Travel Agency 
                 </motion.h2>
               </div>
 

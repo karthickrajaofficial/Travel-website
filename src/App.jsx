@@ -20,6 +20,7 @@ import GallerySection from "./components/GallerySection";
 import TopBar from "./components/TopBar";
 import PackageDetails from "./components/PackageDetails";
 import PackageDetail from "./components/PackageDetail";
+import CategoryPage from "./pages/CategoryPage";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
         {/* <Route path="/details/:id" element={<Details />} /> */}
         <Route path="/:packageId" element={<PackageDetails />} />
         <Route path="/:category/:subPackage" element={<PackageDetail />} />
+        <Route path="/category/:category" element={<CategoryPage />} />
         <Route path="/about" element={<AboutSection />} />
         {/* <Route path="/" element={<TourPackages />} /> */}
         {/* <Route path="/:categoryName" element={<TourCategory />} /> */}

@@ -9,10 +9,18 @@ const TourCategory = () => {
 
   const handleCategoryClick = (path) => {
     navigate(path)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   const handleSubPlaceClick = (path) => {
     navigate(path)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   return (

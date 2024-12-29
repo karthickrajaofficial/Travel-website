@@ -34,16 +34,28 @@ const Menu = () => {
   // Handle category selection
   const handleCategoryClick = (category) => {
     setCurrentCategory(category);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   // Navigate to destination
   const handleNavigate = (destination) => {
     navigate(`/tours/${destination.toLowerCase().replace(/ /g, "-")}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   // Go back to main menu
   const handleBack = () => {
     setCurrentCategory(null);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   // Close menu on outside click

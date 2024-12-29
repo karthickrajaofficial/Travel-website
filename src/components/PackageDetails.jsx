@@ -25,6 +25,10 @@ const PackageDetails = () => {
   // Handle sub-place click
   const handleSubPlaceClick = (subPlacePath) => {
     navigate(subPlacePath)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   return (
