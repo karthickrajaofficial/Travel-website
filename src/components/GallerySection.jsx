@@ -1,146 +1,154 @@
-// import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import 'swiper/css';
-
-// const GallerySection = () => {
-//   const galleryItems = [
-//     { image: "/gallery/01.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/05.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/06.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/01.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/05.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/06.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/01.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/05.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/06.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/01.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/05.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-//     { image: "/gallery/06.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" }
-//   ];
-
-//   return (
-//     <div className="gallery py-20 px-4 sm:px-8 lg:px-20">
-//       <div className="text-center mb-12">
-//         <span className="text-lg font-semibold text-gray-700">Our Gallery</span>
-//         <h2 className="text-4xl font-bold mt-2 text-primary">Best Traveler Share A Photo</h2>
-//       </div>
-//       <div className="gallery__slider" style={{ height: '400px' }}> {/* Make sure container height is set */}
-//         <Swiper
-//           spaceBetween={16}
-//           slidesPerView={1}
-//           loop={true}  // Infinite loop enabled
-//           autoplay={{
-//             delay: 2500,  // Autoplay delay in ms
-//             disableOnInteraction: false,  // Allows autoplay to continue after interaction
-//           }}
-//           grabCursor={true}
-//           speed={1000}  // Speed of the transition effect
-//           breakpoints={{
-//             640: { slidesPerView: 2 },
-//             768: { slidesPerView: 3 },
-//             1024: { slidesPerView: 4 },
-//             1280: { slidesPerView: 5 },
-//             1536: { slidesPerView: 6 }
-//           }}
-//           loopAdditionalSlides={2}  // Ensuring that the loop works with additional slides
-//         >
-//           {galleryItems.map((item, index) => (
-//             <SwiperSlide key={index}>
-//               <div className="gallery__item">
-//                 <div className="gallery__thumb relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group">
-//                   <img
-//                     src={item.image}
-//                     alt={`Travel photo of ${item.title}`}
-//                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-//                     loading="lazy"
-//                   />
-//                   <div className="absolute bottom-4 left-4 p-4 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-md">
-//                     <h3 className="text-lg font-semibold">{item.title}</h3>
-//                     <p className="flex items-center text-sm mt-2">
-//                       <img
-//                         src={item.authorImage}
-//                         alt={`${item.author}'s profile`}
-//                         className="w-8 h-8 rounded-full mr-2"
-//                       />
-//                       {item.author}
-//                     </p>
-//                   </div>
-//                 </div>
-//               </div>
-//             </SwiperSlide>
-//           ))}
-//         </Swiper>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default GallerySection;
-//  old code 
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
-import "swiper/css";
 
 const GallerySection = () => {
   const galleryItems = [
-    { image: "/gallery/01.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-    { image: "/gallery/05.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-    { image: "/gallery/06.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-    { image: "/gallery/01.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-    { image: "/gallery/05.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
-    { image: "/gallery/06.jpg", authorImage: "/gallery/author/01.jpg", title: "Finland", author: "Sahjahan Sagor" },
+    {
+      image: "/gallery/01.jpg",
+      authorImage: "/gallery/author/01.jpg",
+      title: "Northern Lights in Finland",
+      author: "Sahjahan Sagor",
+      category: "Nature",
+    },
+    {
+      image: "/gallery/05.jpg",
+      authorImage: "/gallery/author/01.jpg",
+      title: "Helsinki Harbor",
+      author: "Sahjahan Sagor",
+      category: "City",
+    },
+    {
+      image: "/gallery/06.jpg",
+      authorImage: "/gallery/author/01.jpg",
+      title: "Finnish Lakeside",
+      author: "Sahjahan Sagor",
+      category: "Landscape",
+    },
+    {
+      image: "/gallery/01.jpg",
+      authorImage: "/gallery/author/01.jpg",
+      title: "Lapland Winter",
+      author: "Sahjahan Sagor",
+      category: "Adventure",
+    },
+    {
+      image: "/gallery/05.jpg",
+      authorImage: "/gallery/author/01.jpg",
+      title: "Traditional Finnish Sauna",
+      author: "Sahjahan Sagor",
+      category: "Culture",
+    },
+    {
+      image: "/gallery/06.jpg",
+      authorImage: "/gallery/author/01.jpg",
+      title: "Finnish Forest",
+      author: "Sahjahan Sagor",
+      category: "Nature",
+    },
   ];
 
-  // Duplicate array for seamless looping
-  const loopedGalleryItems = [...galleryItems, ...galleryItems];
+  // Duplicate items for infinite scrolling
+  const duplicatedItems = [...galleryItems, ...galleryItems];
 
   return (
-    <div className="gallery py-20 px-4 sm:px-8 lg:px-20 overflow-hidden">
-      {/* Section Title */}
-      <div className="text-center mb-12">
-        <span className="text-lg font-semibold text-gray-700">Our Gallery</span>
-        <h2 className="text-4xl font-bold mt-2 text-primary">Best Traveler Share A Photo</h2>
-      </div>
+    <div className="bg-blue-950 py-24 relative overflow-hidden">
+      {/* Content Container */}
+      <div className="max-w-7xl mx-auto px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-sm text-yellow-400 tracking-widest">
+            DISCOVER EUROPE
+          </span>
+          <h2 className="text-4xl font-light text-white mt-4 mb-6 tracking-wider">
+            Finnish Travel Gallery
+          </h2>
+          <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            Experience the stunning beauty of Finland through the lens of our talented photographers
+          </p>
+        </motion.div>
 
-      {/* Framer Motion Infinite Scroll */}
-      <motion.div
-        className="flex gap-6"
-        initial={{ x: 0 }}
-        animate={{
-          x: "-100%", // Move content to the left
-          transition: {
-            ease: "linear",
-            duration: 20, // Adjust scroll speed
-            repeat: Infinity, // Infinite scroll
-          },
-        }}
-      >
-        {loopedGalleryItems.map((item, index) => (
-          <div key={index} className="min-w-[300px] h-[400px] relative rounded-lg overflow-hidden shadow-lg group">
-            {/* Image */}
-            <img
-              src={item.image}
-              alt={`Travel photo of ${item.title}`}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
-
-            {/* Content Overlay */}
-            <div className="absolute bottom-4 left-4 p-4 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-md">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="flex items-center text-sm mt-2">
+        {/* Auto-scrolling Gallery */}
+        <div className="overflow-hidden py-8">
+          <motion.div
+            className="flex gap-6"
+            initial={{ x: 0 }}
+            animate={{ x: "-100%" }}
+            transition={{
+              x: {
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear",
+              },
+            }}
+          >
+            {duplicatedItems.map((item, index) => (
+              <div
+                key={index}
+                className="relative group min-w-[200px] sm:min-w-[300px] md:min-w-[400px] h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden flex-shrink-0"
+              >
+                {/* Main Image */}
                 <img
-                  src={item.authorImage}
-                  alt={`${item.author}'s profile`}
-                  className="w-8 h-8 rounded-full mr-2"
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {item.author}
-              </p>
-            </div>
-          </div>
-        ))}
-      </motion.div>
+
+                {/* Category Tag */}
+                <div className="absolute top-4 right-4 bg-blue-900/50 backdrop-blur-sm px-4 py-1 rounded-full border border-yellow-400/20">
+                  <span className="text-yellow-400 text-sm tracking-wide">
+                    {item.category}
+                  </span>
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="bg-blue-900/50 backdrop-blur-sm rounded-lg p-6 border border-yellow-400/20">
+                      <h3 className="text-lg font-light text-white mb-4 tracking-wider">
+                        {item.title}
+                      </h3>
+                      <div className="flex items-center gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full border border-yellow-400/20">
+                          <img
+                            src={item.authorImage}
+                            alt={item.author}
+                            className="w-full h-full rounded-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h5 className="text-sm text-white tracking-wider mb-1">
+                            {item.author}
+                          </h5>
+                          <p className="text-sm text-yellow-400 tracking-wide">
+                            Photographer
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Bottom Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <button className="inline-block text-yellow-400 text-sm tracking-widest px-6 py-2 rounded-full border border-yellow-400/20 hover:bg-yellow-400 hover:text-blue-950 transition-all duration-300">
+            Discover More Finish Adventures
+          </button>
+        </motion.div>
+      </div>
     </div>
   );
 };
