@@ -110,7 +110,7 @@ const Footer = () => {
               />
               <div>
                 <h2 className="text-lg text-white font-light tracking-wider">ROYAL EUROPA</h2>
-                <span className="text-xs text-yellow-400 tracking-widest">EST. 1998</span>
+                {/* <span className="text-xs text-yellow-400 tracking-widest">EST. 1998</span> */}
               </div>
             </div>
             <p className="text-gray-400 leading-relaxed mb-8">
