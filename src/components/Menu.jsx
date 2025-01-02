@@ -42,7 +42,7 @@ const Menu = () => {
 
   // Navigate to destination
   const handleNavigate = (destination) => {
-    navigate(`/tours/${destination.toLowerCase().replace(/ /g, "-")}`);
+    navigate(`/${destination.toLowerCase().replace(/ /g, "-")}`);
     window.scrollTo({
       top: 0,
       behavior: 'smooth'

@@ -103,7 +103,7 @@
 //             className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-2xl transform hover:scale-110 transition-transform"
 //             whileHover={{ scale: 1.1 }}
 //             whileTap={{ scale: 0.9 }}
-//             // onClick={() => navigate('/tours')} // Navigate to "/tours"
+//             // onClick={() => navigate('')} // Navigate to ""
 //           >
 //             Explore All Packages
 //           </motion.button>
@@ -123,14 +123,14 @@
 //   const [isPaused, setIsPaused] = useState(false); // Control animation pause
 
 //   const packages = [
-//     { name: "Greece", image: "01.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Greece City", price: "$1200" },
-//     { name: "Finland", image: "02.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Finland Beach", price: "$1200" },
-//     { name: "Bhutan", image: "03.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Bhutan City", price: "$1200" },
-//     { name: "Paris", image: "04.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Paris City", price: "$1200" },
-//     { name: "Greeceee", image: "01.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Greece City", price: "$1200" },
-//     { name: "Maldiveees", image: "02.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Finland Beach", price: "$1200" },
-//     { name: "Bhutaneee", image: "03.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Bhutan City", price: "$1200" },
-//     { name: "Pariseee", image: "04.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Paris City", price: "$1200" },
+//     { name: "Greece", image: "01.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Greece City", price: "₹1200" },
+//     { name: "Finland", image: "02.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Finland Beach", price: "₹1200" },
+//     { name: "Bhutan", image: "03.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Bhutan City", price: "₹1200" },
+//     { name: "Paris", image: "04.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Paris City", price: "₹1200" },
+//     { name: "Greeceee", image: "01.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Greece City", price: "₹1200" },
+//     { name: "Maldiveees", image: "02.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Finland Beach", price: "₹1200" },
+//     { name: "Bhutaneee", image: "03.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Bhutan City", price: "₹1200" },
+//     { name: "Pariseee", image: "04.jpg", description: "4 Day’s 3 Night", title: "Enjoy the Beauty place in Paris City", price: "₹1200" },
 //   ];
 
 //   // Combine packages twice to make the scroll seamless
@@ -224,7 +224,7 @@
 //       image: "01.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Greece City", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/greece"
 //     },
 //     { 
@@ -232,7 +232,7 @@
 //       image: "02.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Finland Beach", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/finland"
 //     },
 //     { 
@@ -240,7 +240,7 @@
 //       image: "03.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Bhutan City", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/bhutan"
 //     },
 //     { 
@@ -248,7 +248,7 @@
 //       image: "04.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Paris City", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/paris"
 //     },
 //     { 
@@ -256,7 +256,7 @@
 //       image: "01.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Greece City", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/greece"
 //     },
 //     { 
@@ -264,7 +264,7 @@
 //       image: "02.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Finland Beach", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/maldives"
 //     },
 //     { 
@@ -272,7 +272,7 @@
 //       image: "03.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Bhutan City", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/bhutan"
 //     },
 //     { 
@@ -280,7 +280,7 @@
 //       image: "04.jpg", 
 //       description: "4 Day's 3 Night", 
 //       title: "Enjoy the Beauty place in Paris City", 
-//       price: "$1200",
+//       price: "₹1200",
 //       path: "/paris"
 //     },
 //   ];

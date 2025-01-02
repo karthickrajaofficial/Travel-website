@@ -10,7 +10,7 @@ const TourPackages = () => {
         {tourPackages.map((category) => (
           <div key={category.id} className="mb-10">
             <h3 className="text-xl font-semibold mb-4">
-              <Link to={`/tours/${category.name.toLowerCase().replace(" ", "-")}`}>{category.name}</Link>
+              <Link to={`/${category.name.toLowerCase().replace(" ", "-")}`}>{category.name}</Link>
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {category.tours.map((tour) => (

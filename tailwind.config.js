@@ -3,58 +3,67 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "node_modules/swiper/**/*.{js,jsx,ts,tsx}", // Ensure all your JSX, TSX, JS, and TS files are included
+    "node_modules/swiper/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: "#121a2d",      // Custom primary color
-        light: "#FFFFFF1A",      // Semi-transparent white
-        gray: "#9DA1B4",         // Custom gray color
-        lightgray: "#F4F6FA",    // Light gray background
-        orange: "#FA9556",       // Custom orange color
+        royal: {
+          50: '#f0f5ff',
+          100: '#e6edff',
+          200: '#bfd4ff',
+          300: '#94b5ff',
+          400: '#608cff',
+          500: '#3366ff',
+          600: '#0037db',
+          700: '#002db3',
+          800: '#001f80',
+          900: '#121a2d',
+          950: '#0a0f1a',
+        },
+        gold: {
+          50: '#fff9eb',
+          100: '#ffefc2',
+          200: '#ffd980',
+          300: '#ffc53d',
+          400: '#ffb41a',
+          500: '#faa307',
+          600: '#e68a00',
+          700: '#cc7a00',
+          800: '#a66200',
+          900: '#804d00',
+        },
+        primary: "#121a2d",
+        light: "#FFFFFF1A",
+        gray: {
+          DEFAULT: "#9DA1B4",
+          light: "#F4F6FA",
+        },
+        accent: "#FA9556",
       },
       fontFamily: {
-        sans: ['"Inter"', "sans-serif"], // Custom font family for text
+        'poppins': ['Poppins', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        sans: ['"Inter"', "sans-serif"],
+        serif: ['"Cormorant Garamond"', "serif"],
+      },
+      fontSize: {
+        '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+        '9xl': ['8rem', { lineHeight: '1' }],
       },
       spacing: {
-        128: "32rem",  // Custom spacing size
-        144: "36rem",  // Custom spacing size
-        screen: "100vh", // Ensure full height for screens
+        128: "32rem",
+        144: "36rem",
+        screen: "100vh",
       },
-      screens: {
-        xl: "1440px",   // Override for larger screens
-        "2xl": "1536px",  // Custom breakpoint for even larger screens
-      },
-      boxShadow: {
-        "custom-light": "0 4px 6px rgba(0, 0, 0, 0.1)", // Light custom shadow
-        "custom-dark": "0 10px 15px rgba(0, 0, 0, 0.1)", // Dark custom shadow
-      },
-      transitionDuration: {
-        1000: "1000ms", // Custom transition duration for smooth scrolling
-      },
-      animation: {
-        fade: "fadeIn 1s ease-out", // Fading animation
-        parallax: "parallax 3s ease-in-out infinite", // Parallax animation
-        "bounce-slow": "bounce 3s infinite", // Slow bounce animation
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        },
-        parallax: {
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-          "100%": { transform: "translateY(0)" },
-        },
-      },
+      // ... rest of the configuration from previous example
     },
   },
   plugins: [
-    // Include any necessary plugins here, such as typography, forms, or line-clamp
-    // For example:
-    // require('@tailwindcss/forms'),
-    // require('@tailwindcss/typography'),
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

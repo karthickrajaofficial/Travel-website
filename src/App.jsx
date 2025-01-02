@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import Details from "./components/Details";
 import AboutSection from "./pages/AboutSection";
 // import TestimonialsSection from './pages/TestimonialsSection';
-// import TourSection from './components/TourSection';
+// import TourSection from './componentsection';
 // import Tour from './components/Tour';
 // import TourPackages from './components/TourPackages';
 // import TourDetails from './components/TourCategory';
@@ -21,10 +21,12 @@ import TopBar from "./components/TopBar";
 import PackageDetails from "./components/PackageDetails";
 import PackageDetail from "./components/PackageDetail";
 import CategoryPage from "./pages/CategoryPage";
+import ProductsPage from "./pages/ProductsPage";
 
 const App = () => {
   return (
     <Router>
+        {/* <div className="min-h-screen bg-blue-50"> */}
       <TopBar />
       <Navbar />
 
@@ -39,16 +41,18 @@ const App = () => {
         <Route path="/:packageId" element={<PackageDetails />} />
         <Route path="/:category/:subPackage" element={<PackageDetail />} />
         <Route path="/category/:category" element={<CategoryPage />} />
+        <Route path="/packages/:type" element={<ProductsPage />} />
         <Route path="/about" element={<AboutSection />} />
         {/* <Route path="/" element={<TourPackages />} /> */}
         {/* <Route path="/:categoryName" element={<TourCategory />} /> */}
-        {/* <Route path="/tours/:categoryName" element={<TourCategory />} />   */}
-        {/* <Route path="/TourSection" element={<TourSection />} /> */}
-        {/* <Route path="/tours/:packageName" element={<TourSection />} /> */}
-        {/* <Route path="/TourSection" element={<Tour/>} /> */}
+        {/* <Route path="/:categoryName" element={<TourCategory />} />   */}
+        {/* <Route path="ection" element={<TourSection />} /> */}
+        {/* <Route path="/:packageName" element={<TourSection />} /> */}
+        {/* <Route path="ection" element={<Tour/>} /> */}
       </Routes>
 
       <Footer />
+      {/* </div> */}
     </Router>
   );
 };

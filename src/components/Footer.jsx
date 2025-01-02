@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   FaTwitter,
   FaInstagram,
@@ -50,70 +51,79 @@ const Footer = () => {
     { 
       icon: FaPhone, 
       title: "Call Us",
-      text: "+1 (555) 123-4567"
+      text: "+44 (0) 20 7123 4567"
     },
     { 
       icon: FaEnvelope, 
       title: "Email",
-      text: "info@royaleuropa.com"
+      text: "concierge@royaleuropa.com"
     },
     { 
       icon: FaMapMarkerAlt, 
       title: "Location",
-      text: "123 Europa Street, London"
+      text: "1 Royal Avenue, Mayfair, London"
     }
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-100">
+    <footer className="bg-blue-950">
       {/* Newsletter Section */}
-      {/* <div className="bg-blue-50">
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Subscribe to Our Newsletter
+      {/* <div className="border-b border-yellow-400/10">
+        <div className="max-w-7xl mx-auto px-8 py-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h3 className="text-4xl font-light text-white mb-6">
+              Begin Your <span className="text-yellow-400">Royal Journey</span>
             </h3>
-            <p className="text-gray-600 mb-8">
-              Stay updated with our latest tours and exclusive offers
+            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+              Join our exclusive circle and receive personalized travel inspirations, 
+              curated experiences, and privileged access to Europe's finest destinations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
+                placeholder="Enter your email address"
+                className="flex-1 px-6 py-4 bg-blue-900/50 border border-yellow-400/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400/50"
               />
-              <button className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+              <button className="px-8 py-4 bg-yellow-400 text-blue-950 rounded-lg hover:bg-yellow-300 transition-colors font-medium tracking-wide">
                 Subscribe
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div> */}
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-8 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           {/* About Section */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-4 mb-8">
               <img 
                 src="/logo.jpg" 
                 alt="Royal Europa" 
-                className="h-8" 
+                className="h-12 w-auto rounded-full" 
               />
-              <h2 className="text-xl font-bold text-gray-800">Royal Europa DMC</h2>
+              <div>
+                <h2 className="text-lg text-white font-light tracking-wider">ROYAL EUROPA</h2>
+                <span className="text-xs text-yellow-400 tracking-widest">EST. 1998</span>
+              </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              Discover Europe's finest destinations with Royal Europa DMC. 
-              Creating unforgettable travel experiences
+            <p className="text-gray-400 leading-relaxed mb-8">
+              Creating extraordinary journeys across Europe's most prestigious destinations. 
+              Where luxury meets legacy in travel excellence.
             </p>
             <div className="flex gap-4">
               {socialLinks.map(({ icon: Icon, label, link }) => (
                 <a
                   key={label}
                   href={link}
-                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center
-                    hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300"
+                  className="w-10 h-10 rounded-full border border-yellow-400/20 flex items-center justify-center
+                    text-yellow-400 hover:bg-yellow-400 hover:text-blue-950 transition-all duration-300"
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -126,15 +136,15 @@ const Footer = () => {
 
           {/* Destinations */}
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-6">
-              Popular Destinations
+            <h4 className="text-sm text-yellow-400 tracking-widest mb-8">
+              DESTINATIONS
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {destinations.map(({ label, link }) => (
                 <li key={label}>
                   <button
                     onClick={() => handleNavigation(link)}
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-gray-400 hover:text-yellow-400 transition-colors tracking-wide"
                   >
                     {label}
                   </button>
@@ -145,15 +155,15 @@ const Footer = () => {
 
           {/* Experiences */}
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-6">
-              Travel Experiences
+            <h4 className="text-sm text-yellow-400 tracking-widest mb-8">
+              EXPERIENCES
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {experiences.map(({ label, link }) => (
                 <li key={label}>
                   <button
                     onClick={() => handleNavigation(link)}
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-gray-400 hover:text-yellow-400 transition-colors tracking-wide"
                   >
                     {label}
                   </button>
@@ -164,18 +174,18 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-6">
-              Contact Us
+            <h4 className="text-sm text-yellow-400 tracking-widest mb-8">
+              CONTACT
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {contactInfo.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-                    <Icon className="text-blue-600" size={18} />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400/10 flex items-center justify-center">
+                    <Icon className="text-yellow-400" size={18} />
                   </div>
                   <div>
-                    <h5 className="text-sm font-medium text-gray-900">{title}</h5>
-                    <p className="text-sm text-gray-600">{text}</p>
+                    <h5 className="text-sm text-white tracking-wider mb-1">{title}</h5>
+                    <p className="text-sm text-gray-400">{text}</p>
                   </div>
                 </div>
               ))}
@@ -184,27 +194,27 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-200 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-600">
+        <div className="border-t border-yellow-400/10 mt-16 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} Royal Europa DMC. All rights reserved.
             </p>
-            <div className="flex gap-8 text-sm text-gray-600">
+            <div className="flex gap-8 text-sm text-gray-400">
               <button 
                 onClick={() => handleNavigation('/privacy')} 
-                className="hover:text-blue-600 transition-colors"
+                className="hover:text-yellow-400 transition-colors tracking-wide"
               >
                 Privacy Policy
               </button>
               <button 
                 onClick={() => handleNavigation('/terms')} 
-                className="hover:text-blue-600 transition-colors"
+                className="hover:text-yellow-400 transition-colors tracking-wide"
               >
                 Terms of Service
               </button>
               <button 
                 onClick={() => handleNavigation('/cookies')} 
-                className="hover:text-blue-600 transition-colors"
+                className="hover:text-yellow-400 transition-colors tracking-wide"
               >
                 Cookie Policy
               </button>

@@ -51,7 +51,7 @@
 //     </div>
 //     <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //       <h2 className="text-xl font-bold mb-1">Paris</h2>
-//       <p className="text-sm">Starting From ₹ 1,20,000</p>
+//       <p className="text-sm">Starting From $ 1,20,000</p>
 //     </div>
 //   </Link>
 // </div>
@@ -70,7 +70,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Switzerland</h2>
-//                   <p className="text-sm">Starting From ₹ 1,90,000</p>
+//                   <p className="text-sm">Starting From $ 1,90,000</p>
 //                 </div>
 //                 </Link>
 //               </div>
@@ -88,7 +88,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Italy</h2>
-//                   <p className="text-sm">Starting From ₹1,50,000</p>
+//                   <p className="text-sm">Starting From $1,50,000</p>
 //                 </div>
 //                 </Link>
 //               </div>
@@ -107,7 +107,7 @@
 //               </div>
 //               <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                 <h2 className="text-xl font-bold mb-1">London</h2>
-//                 <p className="text-sm">Starting From ₹1,50,000</p>
+//                 <p className="text-sm">Starting From $1,50,000</p>
 //               </div>
 //               </Link>
 //             </div>
@@ -129,7 +129,7 @@
 //               </div>
 //               <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                 <h2 className="text-xl font-bold mb-1">Germany</h2>
-//                 <p className="text-sm">Starting From ₹ 1,20,000</p>
+//                 <p className="text-sm">Starting From $ 1,20,000</p>
 //               </div>
 //               </Link>
 //             </div>
@@ -148,7 +148,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Finland</h2>
-//                   <p className="text-sm">Starting From ₹ 1,90,000</p>
+//                   <p className="text-sm">Starting From $ 1,90,000</p>
 //                 </div>
 //                 </Link>
 //               </div>
@@ -166,7 +166,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Greece</h2>
-//                   <p className="text-sm">Starting From ₹1,50,000</p>
+//                   <p className="text-sm">Starting From $1,50,000</p>
 //                 </div>
 //               </Link>
 //               </div>
@@ -185,7 +185,7 @@
 //               </div>
 //               <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                 <h2 className="text-xl font-bold mb-1">Iceland</h2>
-//                 <p className="text-sm">Starting From ₹1,50,000</p>
+//                 <p className="text-sm">Starting From $1,50,000</p>
 //               </div>
 //             </Link>
 //             </div>
@@ -250,7 +250,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Paris</h2>
-//                   <p className="text-sm">Starting From ₹ 1,20,000</p>
+//                   <p className="text-sm">Starting From $ 1,20,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -268,7 +268,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Switzerland</h2>
-//                     <p className="text-sm">Starting From ₹ 1,90,000</p>
+//                     <p className="text-sm">Starting From $ 1,90,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -285,7 +285,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Italy</h2>
-//                     <p className="text-sm">Starting From ₹1,50,000</p>
+//                     <p className="text-sm">Starting From $1,50,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -303,7 +303,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">London</h2>
-//                   <p className="text-sm">Starting From ₹1,50,000</p>
+//                   <p className="text-sm">Starting From $1,50,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -326,7 +326,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Germany</h2>
-//                   <p className="text-sm">Starting From ₹ 1,20,000</p>
+//                   <p className="text-sm">Starting From $ 1,20,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -344,7 +344,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Finland</h2>
-//                     <p className="text-sm">Starting From ₹ 1,90,000</p>
+//                     <p className="text-sm">Starting From $ 1,90,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -361,7 +361,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Greece</h2>
-//                     <p className="text-sm">Starting From ₹1,50,000</p>
+//                     <p className="text-sm">Starting From $1,50,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -379,7 +379,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Iceland</h2>
-//                   <p className="text-sm">Starting From ₹1,50,000</p>
+//                   <p className="text-sm">Starting From $1,50,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -443,7 +443,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Paris</h2>
-//                   <p className="text-sm">Starting From ₹ 1,20,000</p>
+//                   <p className="text-sm">Starting From $ 1,20,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -461,7 +461,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Switzerland</h2>
-//                     <p className="text-sm">Starting From ₹ 1,90,000</p>
+//                     <p className="text-sm">Starting From $ 1,90,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -478,7 +478,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Italy</h2>
-//                     <p className="text-sm">Starting From ₹1,50,000</p>
+//                     <p className="text-sm">Starting From $1,50,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -496,7 +496,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">London</h2>
-//                   <p className="text-sm">Starting From ₹1,50,000</p>
+//                   <p className="text-sm">Starting From $1,50,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -517,7 +517,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Germany</h2>
-//                   <p className="text-sm">Starting From ₹ 1,20,000</p>
+//                   <p className="text-sm">Starting From $ 1,20,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -535,7 +535,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Finland</h2>
-//                     <p className="text-sm">Starting From ₹ 1,90,000</p>
+//                     <p className="text-sm">Starting From $ 1,90,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -552,7 +552,7 @@
 //                   </div>
 //                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                     <h2 className="text-xl font-bold mb-1">Greece</h2>
-//                     <p className="text-sm">Starting From ₹1,50,000</p>
+//                     <p className="text-sm">Starting From $1,50,000</p>
 //                   </div>
 //                 </Link>
 //               </div>
@@ -570,7 +570,7 @@
 //                 </div>
 //                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
 //                   <h2 className="text-xl font-bold mb-1">Iceland</h2>
-//                   <p className="text-sm">Starting From ₹1,50,000</p>
+//                   <p className="text-sm">Starting From $1,50,000</p>
 //                 </div>
 //               </Link>
 //             </div>
@@ -597,7 +597,7 @@ const FeatureSection = () => {
   return (
     <div className="feature py-12 px-4 sm:px-20 relative">
       {/* Background Heading */}
-      <div className="absolute top-0 z-[-1] left-0 w-full text-center font-semibold text-[#ccccce] text-[calc(3rem+5vw)] lg:text-[23rem] leading-none hidden lg:block opacity-50">
+      <div className="absolute top-0 z-[-1] left-0 w-full text-center font-semibold text-[#d1d1dc] text-[calc(3rem+5vw)] lg:text-[23rem] leading-none hidden lg:block opacity-50">
         Europe
       </div>
 
@@ -637,7 +637,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Paris</h2>
-                  <p className="text-xs">Starting From ₹ 1,20,000</p>
+                  <p className="text-xs">Starting From $ 1,20,000</p>
                 </div>
               </Link>
             </div>
@@ -654,7 +654,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Switzerland</h2>
-                  <p className="text-xs">Starting From ₹ 1,90,000</p>
+                  <p className="text-xs">Starting From $ 1,90,000</p>
                 </div>
               </Link>
             </div>
@@ -671,7 +671,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Italy</h2>
-                  <p className="text-xs">Starting From ₹1,50,000</p>
+                  <p className="text-xs">Starting From $1,50,000</p>
                 </div>
               </Link>
             </div>
@@ -688,7 +688,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">London</h2>
-                  <p className="text-xs">Starting From ₹1,50,000</p>
+                  <p className="text-xs">Starting From $1,50,000</p>
                 </div>
               </Link>
             </div>
@@ -708,7 +708,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-xl font-bold mb-1">Paris</h2>
-                  <p className="text-sm">Starting From ₹ 1,20,000</p>
+                  <p className="text-sm">Starting From $ 1,20,000</p>
                 </div>
               </Link>
             </div>
@@ -726,7 +726,7 @@ const FeatureSection = () => {
                   </div>
                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                     <h2 className="text-xl font-bold mb-1">Switzerland</h2>
-                    <p className="text-sm">Starting From ₹ 1,90,000</p>
+                    <p className="text-sm">Starting From $ 1,90,000</p>
                   </div>
                 </Link>
               </div>
@@ -743,7 +743,7 @@ const FeatureSection = () => {
                   </div>
                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                     <h2 className="text-xl font-bold mb-1">Italy</h2>
-                    <p className="text-sm">Starting From ₹1,50,000</p>
+                    <p className="text-sm">Starting From $1,50,000</p>
                   </div>
                 </Link>
               </div>
@@ -761,7 +761,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-xl font-bold mb-1">London</h2>
-                  <p className="text-sm">Starting From ₹1,50,000</p>
+                  <p className="text-sm">Starting From $1,50,000</p>
                 </div>
               </Link>
             </div>
@@ -784,7 +784,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Germany</h2>
-                  <p className="text-xs">Starting From ₹ 1,20,000</p>
+                  <p className="text-xs">Starting From $ 1,20,000</p>
                 </div>
               </Link>
             </div>
@@ -801,7 +801,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Finland</h2>
-                  <p className="text-xs">Starting From ₹ 1,90,000</p>
+                  <p className="text-xs">Starting From $ 1,90,000</p>
                 </div>
               </Link>
             </div>
@@ -818,7 +818,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Greece</h2>
-                  <p className="text-xs">Starting From ₹1,50,000</p>
+                  <p className="text-xs">Starting From $1,50,000</p>
                 </div>
               </Link>
             </div>
@@ -835,7 +835,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-2 left-2 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-lg font-bold">Iceland</h2>
-                  <p className="text-xs">Starting From ₹1,50,000</p>
+                  <p className="text-xs">Starting From $1,50,000</p>
                 </div>
               </Link>
             </div>
@@ -855,7 +855,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-xl font-bold mb-1">Germany</h2>
-                  <p className="text-sm">Starting From ₹ 1,20,000</p>
+                  <p className="text-sm">Starting From $ 1,20,000</p>
                 </div>
               </Link>
             </div>
@@ -873,7 +873,7 @@ const FeatureSection = () => {
                   </div>
                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                     <h2 className="text-xl font-bold mb-1">Finland</h2>
-                    <p className="text-sm">Starting From ₹ 1,90,000</p>
+                    <p className="text-sm">Starting From $ 1,90,000</p>
                   </div>
                 </Link>
               </div>
@@ -890,7 +890,7 @@ const FeatureSection = () => {
                   </div>
                   <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                     <h2 className="text-xl font-bold mb-1">Greece</h2>
-                    <p className="text-sm">Starting From ₹1,50,000</p>
+                    <p className="text-sm">Starting From $1,50,000</p>
                   </div>
                 </Link>
               </div>
@@ -908,7 +908,7 @@ const FeatureSection = () => {
                 </div>
                 <div className="absolute bottom-4 left-4 text-black p-2 rounded-lg bg-white">
                   <h2 className="text-xl font-bold mb-1">Iceland</h2>
-                  <p className="text-sm">Starting From ₹1,50,000</p>
+                  <p className="text-sm">Starting From $1,50,000</p>
                 </div>
               </Link>
             </div>
