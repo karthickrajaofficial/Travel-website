@@ -58,28 +58,32 @@ const Work = () => {
 
   return (
     <div className="min-h-screen bg-blue-950">
-      <div className="max-w-7xl mx-auto px-8 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
         {/* Header Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center mb-24"
+          className="text-center mb-12 lg:mb-24"
         >
-          <motion.div variants={textVariants} className="mb-8">
+          <motion.div variants={textVariants} className="mb-6 lg:mb-8">
             <div className="inline-block">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-px w-12 bg-yellow-400"></div>
-                <span className="text-yellow-400 tracking-[0.3em] text-sm">PORTFOLIO</span>
-                <div className="h-px w-12 bg-yellow-400"></div>
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="h-px w-8 sm:w-12 bg-yellow-400"></div>
+                <span className="text-yellow-400 tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm">
+                  PORTFOLIO
+                </span>
+                <div className="h-px w-8 sm:w-12 bg-yellow-400"></div>
               </div>
-              <h2 className="text-6xl font-light text-white tracking-wider mb-6">OUR WORK</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-light text-white tracking-wider mb-4 sm:mb-6">
+                OUR WORK
+              </h2>
             </div>
           </motion.div>
 
           <motion.p
             variants={textVariants}
-            className="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed"
+            className="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg leading-relaxed px-4 sm:px-0"
           >
             Discover our collection of distinguished properties and tailored experiences
             across Europe's most coveted destinations.
@@ -91,13 +95,13 @@ const Work = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex justify-center gap-8 mb-16"
+          className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-8 sm:mb-12 lg:mb-16 px-2"
         >
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`text-sm tracking-wider px-6 py-2 transition-all duration-300 ${
+              className={`text-xs sm:text-sm tracking-wider px-3 sm:px-6 py-2 transition-all duration-300 ${
                 activeCategory === category
                   ? "text-yellow-400 border-b border-yellow-400"
                   : "text-gray-400 hover:text-yellow-400"
@@ -113,7 +117,7 @@ const Work = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -125,19 +129,19 @@ const Work = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-blue-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 p-12 flex flex-col justify-between">
+                <div className="absolute inset-0 p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
                   <div>
-                    <span className="text-yellow-400 text-sm tracking-wider">
+                    <span className="text-yellow-400 text-xs sm:text-sm tracking-wider">
                       {project.category} | {project.location}
                     </span>
-                    <h3 className="text-white text-2xl font-light tracking-wider mt-2">
+                    <h3 className="text-white text-xl sm:text-2xl font-light tracking-wider mt-2">
                       {project.title}
                     </h3>
                   </div>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -151,9 +155,9 @@ const Work = () => {
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
-          className="text-center mt-24"
+          className="text-center mt-12 sm:mt-16 lg:mt-24"
         >
-          <blockquote className="text-xl font-light text-white leading-relaxed max-w-4xl mx-auto italic">
+          <blockquote className="text-lg sm:text-xl font-light text-white leading-relaxed max-w-4xl mx-auto italic px-4 sm:px-0">
             "Each destination tells a story of unparalleled luxury and distinctive character."
           </blockquote>
         </motion.div>
