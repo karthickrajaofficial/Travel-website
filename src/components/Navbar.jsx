@@ -80,6 +80,7 @@ const Navbar = () => {
     },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Contact", href: "/contact" },
+    // { label: "Tours", href: "/tours" },
   ];
 
   const toggleMenu = () => {
