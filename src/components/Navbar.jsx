@@ -19,7 +19,7 @@ const Navbar = () => {
       "Norway",
       "Scotland",
       "Sweden",
-      "Baltic Region"
+      "Baltic Region",
     ],
     "Southern Europe": [
       "Albania",
@@ -34,18 +34,9 @@ const Navbar = () => {
       "Portugal",
       "Serbia",
       "Slovenia",
-      "Spain"
+      "Spain",
     ],
-    "Eastern Europe": [
-      "Armenia",
-      "Azerbaijan",
-      "Czech Republic",
-      "Georgia",
-      "Hungary",
-      "Kazakhstan",
-      "Poland",
-      "Russia"
-    ],
+    "Eastern Europe": ["Czech Republic", "Hungary", "Poland"],
     "Western Europe": [
       "Austria",
       "Belgium",
@@ -54,23 +45,27 @@ const Navbar = () => {
       "Great Britain",
       "Netherlands",
       "Paris",
-      "Switzerland"
-    ]
+      "Switzerland",
+    ],
   };
 
   const navLinks = [
     {
       label: "Explore Europa",
       hasDropdown: true,
-      regions: europeanRegions
+      regions: europeanRegions,
     },
     {
       label: "Products",
       hasDropdown: true,
       items: [
-        "City Breaks", "Multi City Packages", "Escorted Tours", 
-        "Independent Tours", "Rail Tours", "Self Drive Holidays", 
-        "Chauffeur Driven Tour"
+        "City Breaks",
+        "Multi City Packages",
+        "Escorted Tours",
+        "Independent Tours",
+        "Rail Tours",
+        "Self Drive Holidays",
+        "Chauffeur Driven Tour",
       ],
     },
     {
@@ -121,7 +116,9 @@ const Navbar = () => {
             <div className="p-6 ">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-px w-8 bg-yellow-400"></div>
-                <h3 className="text-yellow-400 tracking-[0.2em] text-sm">EXPLORE</h3>
+                <h3 className="text-yellow-400 tracking-[0.2em] text-sm">
+                  EXPLORE
+                </h3>
                 <div className="h-px w-8 bg-yellow-400"></div>
               </div>
               <div className="grid grid-cols-1 gap-6 w-64">
@@ -132,7 +129,11 @@ const Navbar = () => {
                       className="text-yellow-400 font-medium tracking-wider text-sm flex items-center gap-2 hover:text-yellow-300 transition-colors w-full"
                     >
                       {region}
-                      <FiChevronDown className={`transition-transform ${activeRegion === region ? "rotate-180" : ""}`} />
+                      <FiChevronDown
+                        className={`transition-transform ${
+                          activeRegion === region ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
                     <AnimatePresence>
                       {activeRegion === region && (
@@ -145,7 +146,9 @@ const Navbar = () => {
                           {countries.map((country) => (
                             <a
                               key={country}
-                              href={`/${country.toLowerCase().replace(/\s+/g, "-")}`}
+                              href={`/${country
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`}
                               className="block text-gray-400 hover:text-yellow-400 transition-colors text-sm tracking-wider font-light"
                             >
                               {country}
@@ -169,7 +172,9 @@ const Navbar = () => {
           <div className="p-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8 bg-yellow-400"></div>
-              <h3 className="text-yellow-400 tracking-[0.2em] text-sm">{link.label}</h3>
+              <h3 className="text-yellow-400 tracking-[0.2em] text-sm">
+                {link.label}
+              </h3>
             </div>
             <div className="grid gap-3">
               {link.items.map((item, idx) => (
@@ -200,7 +205,11 @@ const Navbar = () => {
                   className="text-yellow-400 font-medium tracking-wider text-sm flex items-center justify-between w-full py-2"
                 >
                   {region}
-                  <FiChevronDown className={`transition-transform ${activeRegion === region ? "rotate-180" : ""}`} />
+                  <FiChevronDown
+                    className={`transition-transform ${
+                      activeRegion === region ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
                 <AnimatePresence>
                   {activeRegion === region && (
@@ -213,7 +222,9 @@ const Navbar = () => {
                       {countries.map((country) => (
                         <a
                           key={country}
-                          href={`/${country.toLowerCase().replace(/\s+/g, "-")}`}
+                          href={`/${country
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
                           className="block text-gray-400 hover:text-yellow-400 py-1 text-sm tracking-wider font-light"
                         >
                           {country}
@@ -250,8 +261,14 @@ const Navbar = () => {
     <nav className="w-full h-20 sticky top-0 z-50 bg-gradient-to-br from-slate-900 to-blue-950 shadow-xl backdrop-blur-lg bg-opacity-90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
         <a href="/" className="flex items-center gap-4">
-          <img src="logo.jpg" alt="Royal Europa DMC Logo" className="h-12 w-auto" />
-          <span className="text-xl text-white tracking-wider font-light">Royal Europa DMC</span>
+          <img
+            src="logo.jpg"
+            alt="Royal Europa DMC Logo"
+            className="h-12 w-auto"
+          />
+          <span className="text-xl text-white tracking-wider font-light">
+            Royal Europa DMC
+          </span>
         </a>
 
         {/* Desktop Menu */}
@@ -276,7 +293,10 @@ const Navbar = () => {
                   </AnimatePresence>
                 </>
               ) : (
-                <a href={link.href} className="hover:text-yellow-400 transition-colors">
+                <a
+                  href={link.href}
+                  className="hover:text-yellow-400 transition-colors"
+                >
                   {link.label}
                 </a>
               )}
@@ -285,7 +305,10 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu Toggle */}
-        <button onClick={toggleMenu} className="lg:hidden text-3xl text-white hover:text-yellow-400 transition-colors">
+        <button
+          onClick={toggleMenu}
+          className="lg:hidden text-3xl text-white hover:text-yellow-400 transition-colors"
+        >
           {isMenuOpen ? <MdClose /> : <HiMenuAlt3 />}
         </button>
       </div>
@@ -301,7 +324,10 @@ const Navbar = () => {
           >
             <ul className="p-6">
               {navLinks.map((link, index) => (
-                <li key={index} className="border-b border-yellow-400/10 last:border-none">
+                <li
+                  key={index}
+                  className="border-b border-yellow-400/10 last:border-none"
+                >
                   {link.hasDropdown ? (
                     <>
                       <button
@@ -316,11 +342,15 @@ const Navbar = () => {
                         />
                       </button>
                       <AnimatePresence>
-                        {activeDropdown === link.label && renderMobileDropdown(link)}
+                        {activeDropdown === link.label &&
+                          renderMobileDropdown(link)}
                       </AnimatePresence>
                     </>
                   ) : (
-                    <a href={link.href} className="block py-4 text-white hover:text-yellow-400 tracking-wider font-light">
+                    <a
+                      href={link.href}
+                      className="block py-4 text-white hover:text-yellow-400 tracking-wider font-light"
+                    >
                       {link.label}
                     </a>
                   )}
