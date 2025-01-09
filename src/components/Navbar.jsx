@@ -320,7 +320,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden fixed top-24 left-0 w-full h-[calc(100vh-6rem)] bg-gradient-to-br from-slate-900 to-blue-950 overflow-y-auto border-t border-yellow-400/20"
+            className="lg:hidden fixed  left-0 w-full h-[calc(100vh-6rem)] bg-gradient-to-br from-slate-900 to-blue-950 overflow-y-auto border-t border-yellow-400/20"
           >
             <ul className="p-6">
               {navLinks.map((link, index) => (

@@ -125,8 +125,8 @@ const PackageDetails = () => {
     return (
       <div className="min-h-screen bg-blue-950 flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-light text-white mb-4">Package Not Found</h2>
-          <p className="text-gray-400 mb-8">The package you're looking for doesn't exist.</p>
+          <h2 className="text-2xl font-light text-white mb-4">Page Not Found</h2>
+          <p className="text-gray-400 mb-8">The Page you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate('/')}
             className="bg-yellow-400 text-blue-950 px-8 py-3 hover:bg-yellow-300 transition-colors tracking-wider text-sm"
