@@ -11,15 +11,18 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          controls={false}
+          className="w-full h-full object-cover pointer-events-none"
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate"
         >
           <source src="/paris.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      
+        {/* Overlay gradient for better text readability */}
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
-    
     </div>
   );
 };
