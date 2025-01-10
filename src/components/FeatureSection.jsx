@@ -9,7 +9,7 @@ const FeatureSection = () => {
   };
 
   return (
-    <div className="feature py-12 px-4 sm:px-20 relative bg-blue-950">
+    <div className="feature pb-16 py-12 px-4 sm:px-20 relative bg-blue-950">
       {/* Background Heading */}
       <div className="absolute top-0 z-[1] left-0 w-full text-center font-semibold text-[#d1d1dc] text-[calc(3rem+5vw)] lg:text-[23rem] leading-none hidden lg:block opacity-50">
         Europe
@@ -44,7 +44,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Paris</h2>
-        <p className="text-xs">Starting From $ 1,20,000</p>
+        {/* <p className="text-xs">Starting From $ 1,20,000</p> */}
       </div>
     </Link>
   </div>
@@ -58,7 +58,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Switzerland</h2>
-        <p className="text-xs">Starting From $ 1,90,000</p>
+        {/* <p className="text-xs">Starting From $ 1,90,000</p> */}
       </div>
     </Link>
   </div>
@@ -72,7 +72,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Italy</h2>
-        <p className="text-xs">Starting From $1,50,000</p>
+        {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
     </Link>
   </div>
@@ -86,7 +86,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">London</h2>
-        <p className="text-xs">Starting From $1,50,000</p>
+        {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
     </Link>
   </div>
@@ -107,7 +107,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Paris</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
               </Link>
             </div>
@@ -125,7 +125,7 @@ const FeatureSection = () => {
                  </div> */}
                   <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Switzerland</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
                 </Link>
               </div>
@@ -142,7 +142,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Italy</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
                 </Link>
               </div>
@@ -160,7 +160,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">London</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
               </Link>
             </div>
@@ -180,7 +180,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Germany</h2>
-        <p className="text-xs">Starting From $1,20,000</p>
+        {/* <p className="text-xs">Starting From $1,20,000</p> */}
       </div>
     </Link>
   </div>
@@ -194,7 +194,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Finland</h2>
-        <p className="text-xs">Starting From $1,90,000</p>
+        {/* <p className="text-xs">Starting From $1,90,000</p> */}
       </div>
     </Link>
   </div>
@@ -208,7 +208,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Greece</h2>
-        <p className="text-xs">Starting From $1,50,000</p>
+        {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
     </Link>
   </div>
@@ -222,7 +222,7 @@ const FeatureSection = () => {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-2 bg-black/50">
         <h2 className="text-lg font-bold">Iceland</h2>
-        <p className="text-xs">Starting From $1,50,000</p>
+        {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
     </Link>
   </div>
@@ -243,7 +243,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Germany</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
               </Link>
             </div>
@@ -261,7 +261,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Finland</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
                 </Link>
               </div>
@@ -278,7 +278,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Greece</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
                 </Link>
               </div>
@@ -296,7 +296,7 @@ const FeatureSection = () => {
                  </div> */}
                  <div className="absolute bottom-3 left-3 p-3 rounded-lg bg-blue-900/50 backdrop-blur-sm border border-yellow-400/20">
                  <h2 className="text-white font-light tracking-wider text-base">Iceland</h2>
-                  <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p>
+                  {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
               </Link>
             </div>

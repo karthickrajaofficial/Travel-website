@@ -11,7 +11,7 @@ import {
 const TopBar = () => {
   return (
     <div
-      className="top-0 left-0 w-full bg-blue-900 z-5 text-white py-1 sm:py-2 px-2 sm:px-4 md:px-8 z-50 shadow-md"
+      className="top-0 fixed  left-0 w-full bg-blue-900 z-5 text-white py-1 sm:py-2 px-2 sm:px-4 md:px-8 z-50 shadow-md"
       style={{ backdropFilter: "blur(5px)" }}
     >
       <div className="max-w-6xl mx-auto">

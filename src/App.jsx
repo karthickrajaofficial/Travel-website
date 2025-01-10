@@ -30,7 +30,7 @@ const App = () => {
   return (
     <Router>
         {/* <div className="min-h-screen bg-blue-50"> */}
-      <TopBar />
+      {/* <TopBar /> */}
       <Navbar />
 
       <Routes>

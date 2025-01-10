@@ -377,12 +377,12 @@ const PackageDetail = () => {
               {/* Details Column */}
               <div className="space-y-8">
                 <div className="bg-slate-800/50 p-8 border border-yellow-400/20">
-                  <div className="flex justify-between items-center mb-6">
+                  {/* <div className="flex justify-between items-center mb-6">
                     <span className="text-gray-300 text-lg">Starting from</span>
                     <span className="text-3xl text-yellow-400 font-light">
                       {subPackageDetails.price}
                     </span>
-                  </div>
+                  </div> */}
                   <p className="text-gray-300 font-light leading-relaxed">
                     {subPackageDetails.description}
                   </p>

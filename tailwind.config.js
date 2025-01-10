@@ -33,7 +33,7 @@ export default {
           800: '#a66200',
           900: '#804d00',
         },
-        primary: "#121a2d",
+        primary: "#121a2d", //#100C08
         light: "#FFFFFF1A",
         gray: {
           DEFAULT: "#9DA1B4",

@@ -190,12 +190,12 @@ const PackageSection = () => {
         <h5 className="text-xl font-bold text-gray-800 line-clamp-2 mb-2">
           {pkg.title}
         </h5>
-        <div className="flex justify-between items-center mt-3">
+        {/* <div className="flex justify-between items-center mt-3">
           <div className="flex flex-col">
             <span className="text-sm text-gray-500">Starting From</span>
             <span className="text-lg font-extrabold text-purple-600">{pkg.price}</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

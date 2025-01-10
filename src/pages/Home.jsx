@@ -5,12 +5,13 @@ import PackageSection from '../components/PackageSection';
 import GallerySection from '../components/GallerySection';
 import OfferSection from '../components/OfferSection';
 import ExperienceCategories from './Categories';
+import OverlayCategories from '../components/OverlayCategories';
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      {/* <ExperienceCategories/> */}
+      <OverlayCategories/>
       <FeatureSection />
       <PackageSection />
       {/* Uncomment if you want to display these sections */}
