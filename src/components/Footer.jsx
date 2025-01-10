@@ -104,7 +104,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-4 mb-8">
               <img 
-                src="/logo.jpg" 
+                src="/logo.png" 
                 alt="Royal Europa" 
                 className="h-12 w-auto rounded-full" 
               />

@@ -290,7 +290,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full relative">
           <a href="/" className="flex items-center gap-4 relative">
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Royal Europa DMC Logo"
               className="h-12 w-auto"
             />
