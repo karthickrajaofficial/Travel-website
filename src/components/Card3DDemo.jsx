@@ -109,7 +109,8 @@ const Card3DDemo = () => {
   };
 
   return (
-    <CardContainer>
+    <div className="hidden md:block">
+      <CardContainer>
       <CardBody className="relative group/card w-auto sm:w-[70rem] h-auto rounded-2xl p-0 border-2 border-white/30 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-black/10 z-10" />
         
@@ -177,6 +178,7 @@ const Card3DDemo = () => {
         <div className="absolute inset-0 rounded-2xl border border-white/10 group-hover/card:border-white/30 transition-colors duration-500" />
       </CardBody>
     </CardContainer>
+    </div>
   );
 };
 
