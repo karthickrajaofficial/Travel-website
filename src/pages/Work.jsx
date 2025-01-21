@@ -64,7 +64,7 @@ const Work = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center mb-12 lg:mb-24"
+          className="text-center mb-12 lg:mb-24 mt-10"
         >
           <motion.div variants={textVariants} className="mb-6 lg:mb-8">
             <div className="inline-block">

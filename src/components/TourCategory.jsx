@@ -6,16 +6,47 @@ import Banner from "./Banner";
 const TourCategory = () => {
   const { categoryName } = useParams();
 
+  // Add null check for categoryName
+  if (!categoryName) {
+    return (
+      <div className="text-center text-red-500 font-bold py-10">
+        Invalid category URL
+      </div>
+    );
+  }
+
+  // Log for debugging
+  console.log("Category Name from URL:", categoryName);
+  console.log("Available Tour Packages:", tourPackages);
+
   const category = tourPackages.find(
-    (category) =>
-      category.name.toLowerCase().replace(" ", "-") ===
-      categoryName.toLowerCase()
+    (category) => {
+      const formattedCategoryName = category.name.toLowerCase().replace(/\s+/g, "-");
+      const formattedParamName = categoryName.toLowerCase();
+      
+      // Log for debugging
+      console.log("Comparing:", formattedCategoryName, "with", formattedParamName);
+      
+      return formattedCategoryName === formattedParamName;
+    }
   );
+
+  // Log found category
+  console.log("Found Category:", category);
 
   if (!category) {
     return (
       <div className="text-center text-red-500 font-bold py-10">
         Category not found
+      </div>
+    );
+  }
+
+  // Add null check for tours array
+  if (!category.tours) {
+    return (
+      <div className="text-center text-red-500 font-bold py-10">
+        Tours data is missing for this category
       </div>
     );
   }
@@ -49,7 +80,9 @@ const TourCategory = () => {
                     <h4 className="text-lg font-semibold mb-2 hover:text-blue-500">
                       {tour.name}
                     </h4>
-                    <p className="text-sm text-gray-600 mb-4">{tour.description}</p>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {tour.description}
+                    </p>
                     <div className="flex justify-between items-center">
                       <span className="text-lg font-bold text-green-500">
                         {tour.price}

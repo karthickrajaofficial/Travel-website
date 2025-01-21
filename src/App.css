@@ -26,7 +26,14 @@
     transform: rotate(360deg);
   }
 }
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
 
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-out forwards;
+}
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;

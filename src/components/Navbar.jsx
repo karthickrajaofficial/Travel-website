@@ -3,7 +3,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 import { FiChevronDown } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation  } from "react-router-dom";
 import TopBar from "./TopBar";
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
   const [activeRegion, setActiveRegion] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
-
+  const location = useLocation();
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -22,6 +22,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  const isHomePage = location.pathname === "/";
 
   const europeanRegions = {
     "Northern Europe": [
@@ -282,11 +283,11 @@ const Navbar = () => {
       </div>
       <div className="fixed inset-0 w-full h-20 z-40 lg:top-8 top-0">
         <div className={`absolute inset-0 transition-colors duration-300 ${
-          isScrolled ? 'lg:bg-gray-900 bg-gray-900' : 'lg:bg-transparent bg-gray-900'
+          isScrolled || !isHomePage ? 'lg:bg-gray-900 bg-gray-900' : 'lg:bg-transparent bg-gray-900'
         }`} />
       </div>
       
-      <nav className="fixed left-0 right-0 h-20 z-50 lg:top-8 top-0">
+      <nav className="fixed left-0 right-0 h-20 z-50 lg:top-8 top-0 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full relative">
           <a href="/" className="flex items-center gap-4 relative">
             <img
@@ -396,6 +397,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
+      
     </>
   );
 };

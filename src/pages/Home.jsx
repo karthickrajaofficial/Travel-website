@@ -6,18 +6,24 @@ import GallerySection from '../components/GallerySection';
 import OfferSection from '../components/OfferSection';
 import ExperienceCategories from './Categories';
 import OverlayCategories from '../components/OverlayCategories';
+import { ThreeDPhotoCarouselDemo } from '../components/ThreeDPhotoCarouselDemo';
+import ImageTrailDemo from '../components/ImageTrailDemo';
 
 const Home = () => {
   return (
     <div>
+      
       <Hero />
       <OverlayCategories/>
+      <ThreeDPhotoCarouselDemo/>
       <FeatureSection />
       <PackageSection />
+
       {/* Uncomment if you want to display these sections */}
       {/* <TravelSection /> */}
       {/* <PackageSection /> */}
       <GallerySection />
+      {/* <ImageTrailDemo/> */}
       {/* <OfferSection /> */}
       {/* <Testimonial /> */}
     </div>

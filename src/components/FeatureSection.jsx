@@ -9,9 +9,9 @@ const FeatureSection = () => {
   };
 
   return (
-    <div className="feature pb-16 py-12 px-4 sm:px-20 relative bg-blue-950">
+    <div className="feature pb-16 py-12 pt-20 px-4 sm:px-20 relative bg-blue-950">
       {/* Background Heading */}
-      <div className="absolute top-0 z-[1] left-0 w-full text-center font-semibold text-[#d1d1dc] text-[calc(3rem+5vw)] lg:text-[23rem] leading-none hidden lg:block opacity-50">
+      <div className="absolute top-10 z-[1] left-0 w-full text-center font-semibold text-[#d1d1dc] text-[calc(3rem+5vw)] lg:text-[23rem] leading-none hidden lg:block opacity-50">
         Europe
       </div>
 

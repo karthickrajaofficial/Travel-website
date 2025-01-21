@@ -203,61 +203,117 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { packages } from '../data/packages';
+import ProductsDescription from '../components/ProductsDescription';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.2 } },
+// Extracted constants and utilities
+const ANIMATION_VARIANTS = {
+  container: {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.5, staggerChildren: 0.2 } 
+    }
+  },
+  item: {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5 } 
+    }
+  }
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+const IMAGE_MAPPING = {
+  'group-tours': '/hero/group.jpg',
+  'mice-tours': '/hero/mice.jpg',
+  'fit': '/images/hero/fit.jpg',
+  'day-tour': '/images/hero/day-tours.jpg',
+  'adventure-tour': '/images/hero/adventure-tours.jpg',
+  'local-tour': '/images/hero/local-tours.jpg',
 };
 
+const SPECIAL_CASES = {
+  'mice': 'MICE',
+  'fit': 'FIT',
+};
+
+const DEFAULT_PACKAGE = {
+  name: 'No Package',
+  price: 'Contact for price',
+  description: 'No description available.',
+  path: '/default-package',
+  highlights: ['N/A'],
+};
+
+// Utility functions
+const normalizeText = (text) => text?.toLowerCase().replace(/[-\s]+/g, ' ').trim() || '';
+
+const getHeroImage = (type) => {
+  const normalizedType = type?.toLowerCase().replace(/\s+/g, '-') || '';
+  return IMAGE_MAPPING[normalizedType] || '/images/hero/default.jpg';
+};
+
+const formatDisplayText = (text) => {
+  if (!text) return '';
+  
+  return text
+    .split('-')
+    .map(word => {
+      const lowerWord = word.toLowerCase();
+      if (SPECIAL_CASES[lowerWord]) return SPECIAL_CASES[lowerWord];
+      if (lowerWord === 'tour' && text.toLowerCase().includes('mice-tour')) return 'Tour';
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(' ');
+};
+
+// Component
 const ProductsPage = () => {
   const { type } = useParams();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const normalizedUrlType = useMemo(() => {
-    return type ? type.toLowerCase().replace(/[-\s]+/g, ' ').trim() : '';
-  }, [type]);
+  const normalizedUrlType = useMemo(() => normalizeText(type), [type]);
 
   const filteredPackages = useMemo(() => {
     if (!normalizedUrlType) return [];
-    let filtered = packages.filter(pkg => {
-      const normalizedPackageType = pkg.type.toLowerCase().replace(/[-\s]+/g, ' ').trim();
-      return normalizedPackageType === normalizedUrlType;
-    });
 
+    // First try direct match
+    let filtered = packages.filter(pkg => 
+      normalizeText(pkg.type) === normalizedUrlType
+    );
+
+    // If no direct matches, try subPlaces
     if (filtered.length === 0) {
       filtered = packages.reduce((acc, mainPackage) => {
-        const subPlaceMatches = (mainPackage.subPlaces || []).filter(subPlace => 
-          subPlace.type?.toLowerCase().replace(/[-\s]+/g, ' ').trim() === normalizedUrlType
-        ).map(subPlace => ({
-          ...subPlace,
-          parentName: mainPackage.name,
-          parentPath: mainPackage.path,
-          categories: subPlace.categories || [],
-          price: subPlace.price || 'Contact for price',
-          description: subPlace.description || '',
-          path: subPlace.path || `${mainPackage.path}/${subPlace.name.toLowerCase().replace(/\s+/g, '-')}`
-        }));
+        const subPlaceMatches = (mainPackage.subPlaces || [])
+          .filter(subPlace => normalizeText(subPlace.type) === normalizedUrlType)
+          .map(subPlace => ({
+            ...subPlace,
+            parentName: mainPackage.name,
+            parentPath: mainPackage.path,
+            categories: subPlace.categories || [],
+            price: subPlace.price || 'Contact for price',
+            description: subPlace.description || '',
+            path: subPlace.path || `${mainPackage.path}/${normalizeText(subPlace.name)}`
+          }));
         return [...acc, ...subPlaceMatches];
       }, []);
     }
-    return filtered.length > 0 ? filtered : [{ 
-      name: 'No Package', 
-      price: 'Contact for price', 
-      description: 'No description available.', 
-      path: '/default-package',
-      highlights: ['N/A'],
-    }];
+
+    return filtered.length > 0 ? filtered : [DEFAULT_PACKAGE];
   }, [normalizedUrlType]);
+
+  const hasValidPackages = useMemo(() => 
+    filteredPackages.length > 0 && 
+    !(filteredPackages.length === 1 && filteredPackages[0].name === DEFAULT_PACKAGE.name),
+  [filteredPackages]);
 
   useEffect(() => {
     setIsLoading(true);
+    
     if (!type) {
       setError('No package type specified');
       setIsLoading(false);
@@ -265,27 +321,16 @@ const ProductsPage = () => {
     }
 
     const timeout = setTimeout(() => {
-      if (filteredPackages.length === 0) {
-        setError(`No packages found for type: ${type}`);
-      } else {
-        setError(null);
-      }
+      setError(filteredPackages.length === 0 ? `No packages found for type: ${type}` : null);
       setIsLoading(false);
     }, 300);
+
     return () => clearTimeout(timeout);
   }, [type, filteredPackages.length]);
 
   const handlePackageClick = useCallback((path) => {
     navigate(path);
   }, [navigate]);
-
-  const formatDisplayText = useCallback((text) => {
-    if (!text) return '';
-    return text
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  }, []);
 
   if (isLoading) {
     return (
@@ -301,11 +346,11 @@ const ProductsPage = () => {
   const formattedType = formatDisplayText(type);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-200 to-blue-950">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative h-[40vh] sm:h-[50vh] lg:h-[60vh] mb-12 sm:mb-16 lg:mb-24">
         <img
-          src="/bgimg.jpg"
+          src={getHeroImage(type)}
           alt={formattedType}
           className="w-full h-full object-cover"
         />
@@ -315,9 +360,9 @@ const ProductsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-center lg:text-left"
+              className="text-center"
             >
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-px w-8 sm:w-12 bg-yellow-400"></div>
                 <span className="text-yellow-400 tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm">
                   EXPLORE
@@ -327,114 +372,146 @@ const ProductsPage = () => {
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-light text-white tracking-wider mb-4">
                 {formattedType}
               </h1>
-              <p className="text-base sm:text-lg text-gray-300 max-w-2xl">
-                Experience the finest curated {formattedType.toLowerCase()} packages, 
-                crafted for the most discerning travelers.
-              </p>
             </motion.div>
           </div>
         </div>
       </div>
 
+      {/* Package Description */}
+      <div className="max-w-7xl mx-auto px-4 py-5">
+        <div className="text-stone-800 font-serif">
+          <h2 className="text-3xl mb-8">{formattedType}</h2>
+          <ProductsDescription category={formattedType} />
+        </div>
+      </div>
+
       {/* Packages Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 lg:pb-24">
-        {error ? (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="min-h-[40vh] flex items-center justify-center"
-          >
-            <div className="text-center">
-              <h2 className="text-2xl font-light text-white mb-4">Package Not Found</h2>
-              <p className="text-gray-400 mb-8">{error}</p>
-              <button
-                onClick={() => navigate('/')}
-                className="bg-yellow-500 text-white px-8 py-3 rounded-lg hover:bg-yellow-400 transition-colors tracking-wider text-sm"
-              >
-                RETURN HOME
-              </button>
-            </div>
-          </motion.div>
-        ) : (
+      {hasValidPackages && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 lg:pb-24">
+          <h2 className="text-3xl font-serif text-stone-800 mb-12">Featured Destinations</h2>
           <motion.div
-            variants={containerVariants}
+            variants={ANIMATION_VARIANTS.container}
             initial="hidden"
             animate="visible"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
           >
             {filteredPackages.map((pkg, index) => (
-              <motion.div
+              <PackageCard
                 key={`${pkg.path}-${index}`}
-                variants={itemVariants}
-                className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+                package={pkg}
                 onClick={() => handlePackageClick(pkg.path)}
-              >
-                <div className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                
-                <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
-                  <img
-                    src={pkg.image || '/placeholder.jpg'}
-                    alt={pkg.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute bottom-4 left-6 z-20">
-                    <span className="inline-block px-4 py-1 bg-yellow-500/90 text-white text-sm rounded-full">
-                      {pkg.price}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6 sm:p-8">
-                  <h3 className="text-xl font-medium text-white tracking-wide mb-2 group-hover:text-yellow-400 transition-colors">
-                    {pkg.name}
-                  </h3>
-                  {pkg.parentName && (
-                    <p className="text-sm text-slate-400 mb-4">
-                      Part of {pkg.parentName} Tour
-                    </p>
-                  )}
-
-                  <div className="space-y-4">
-                    {pkg.highlights ? (
-                      <>
-                        <h4 className="font-medium text-slate-300 tracking-wide">Experience Includes</h4>
-                        <ul className="space-y-2">
-                          {pkg.highlights.map((highlight, idx) => (
-                            <li key={idx} className="text-sm text-slate-400 flex items-start group/item">
-                              <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform"></span>
-                              {highlight}
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    ) : pkg.categories?.length > 0 && (
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {pkg.categories.map((cat, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs tracking-wider text-yellow-300 bg-yellow-900/30 px-3 py-1 rounded-full"
-                          >
-                            {cat.toUpperCase()}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div className="mt-6 pt-6 border-t border-slate-700/50">
-                    <button className="w-full text-sm text-yellow-400 hover:text-yellow-300 tracking-wider transition-colors">
-                      EXPLORE PACKAGE →
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
+              />
             ))}
           </motion.div>
-        )}
-      </div>
+        </div>
+      )}
+
+      {error && (
+        <ErrorMessage 
+          error={error} 
+          onHomeClick={() => navigate('/')} 
+        />
+      )}
     </div>
   );
 };
+
+// Extracted Components
+const PackageCard = ({ package: pkg, onClick }) => (
+  <motion.div
+    variants={ANIMATION_VARIANTS.item}
+    className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+    onClick={onClick}
+  >
+    <div className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+    
+    <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+      <img
+        src={pkg.image || '/placeholder.jpg'}
+        alt={pkg.name}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div className="absolute bottom-4 left-6 z-20">
+        <span className="inline-block px-4 py-1 bg-yellow-500/90 text-white text-sm rounded-full">
+          {pkg.price}
+        </span>
+      </div>
+    </div>
+
+    <div className="p-6 sm:p-8">
+      <h3 className="text-xl font-medium text-white tracking-wide mb-2 group-hover:text-yellow-400 transition-colors">
+        {pkg.name}
+      </h3>
+      {pkg.parentName && (
+        <p className="text-sm text-slate-400 mb-4">
+          Part of {pkg.parentName} Tour
+        </p>
+      )}
+
+      <PackageDetails package={pkg} />
+      
+      <div className="mt-6 pt-6 border-t border-slate-700/50">
+        <button className="w-full text-sm text-yellow-400 hover:text-yellow-300 tracking-wider transition-colors">
+          EXPLORE PACKAGE →
+        </button>
+      </div>
+    </div>
+  </motion.div>
+);
+
+const PackageDetails = ({ package: pkg }) => {
+  if (pkg.highlights) {
+    return (
+      <div className="space-y-4">
+        <h4 className="font-medium text-slate-300 tracking-wide">Experience Includes</h4>
+        <ul className="space-y-2">
+          {pkg.highlights.map((highlight, idx) => (
+            <li key={idx} className="text-sm text-slate-400 flex items-start group/item">
+              <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3 mt-2 group-hover/item:scale-125 transition-transform"></span>
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  if (pkg.categories?.length > 0) {
+    return (
+      <div className="flex flex-wrap gap-2 pt-2">
+        {pkg.categories.map((cat, idx) => (
+          <span
+            key={idx}
+            className="text-xs tracking-wider text-yellow-300 bg-yellow-900/30 px-3 py-1 rounded-full"
+          >
+            {cat.toUpperCase()}
+          </span>
+        ))}
+      </div>
+    );
+  }
+
+  return null;
+};
+
+const ErrorMessage = ({ error, onHomeClick }) => (
+  <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="min-h-[40vh] flex items-center justify-center"
+  >
+    <div className="text-center">
+      <h2 className="text-2xl font-light text-gray-800 mb-4">Package Not Found</h2>
+      <p className="text-gray-600 mb-8">{error}</p>
+      <button
+        onClick={onHomeClick}
+        className="bg-yellow-500 text-white px-8 py-3 rounded-lg hover:bg-yellow-400 transition-colors tracking-wider text-sm"
+      >
+        RETURN HOME
+      </button>
+    </div>
+  </motion.div>
+);
 
 export default ProductsPage;

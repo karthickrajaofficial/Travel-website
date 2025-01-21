@@ -19,23 +19,68 @@ const CategoryPage = () => {
   const [filteredPackages, setFilteredPackages] = useState([]);
 
   useEffect(() => {
-    const searchCategory = category.toLowerCase();
+    if (!packages || !Array.isArray(packages)) {
+      setFilteredPackages([]);
+      return;
+    }
+
+    const searchCategory = category?.toLowerCase() || '';
     const filtered = packages.filter(pkg => {
-      const hasMainCategory = pkg.categories.some(cat => 
-        cat.toLowerCase() === searchCategory
-      );
-      const hasSubPlaceCategory = pkg.subPlaces.some(subPlace => 
-        subPlace.categories && subPlace.categories.some(cat => 
-          cat.toLowerCase() === searchCategory
-        )
-      );
+      // Check if package has categories array
+      const hasMainCategory = pkg.categories && Array.isArray(pkg.categories) && 
+        pkg.categories.some(cat => cat?.toLowerCase() === searchCategory);
+
+      // Check if package has subPlaces array with categories
+      const hasSubPlaceCategory = pkg.subPlaces && Array.isArray(pkg.subPlaces) && 
+        pkg.subPlaces.some(subPlace => 
+          subPlace?.categories && Array.isArray(subPlace.categories) &&
+          subPlace.categories.some(cat => cat?.toLowerCase() === searchCategory)
+        );
+
       return hasMainCategory || hasSubPlaceCategory;
     });
+    
     setFilteredPackages(filtered);
   }, [category]);
 
   const handlePackageClick = (path) => {
-    navigate(path);
+    if (path) {
+      navigate(path);
+    }
+  };
+
+  const renderCategories = (categories) => {
+    if (!categories || !Array.isArray(categories)) return null;
+    
+    return (
+      <div className="flex flex-wrap gap-2">
+        {categories.map((cat, idx) => (
+          <span
+            key={idx}
+            className="text-xs border border-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full"
+          >
+            {cat ? cat.charAt(0).toUpperCase() + cat.slice(1) : ''}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  const renderSubPlaces = (subPlaces) => {
+    if (!subPlaces || !Array.isArray(subPlaces)) return null;
+
+    return (
+      <ul className="space-y-2">
+        {subPlaces.map((subPlace, idx) => (
+          <li key={idx} className="text-sm text-gray-100 flex items-center group">
+            <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
+            <span className="font-light">
+              {subPlace?.name || ''} {subPlace?.description && <span className="text-gray-100">({subPlace.description})</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
@@ -44,7 +89,7 @@ const CategoryPage = () => {
       <div className="relative h-[50vh] lg:h-[60vh]">
         <div className="absolute inset-0">
           <img
-            src={`/package/category/${category.toLowerCase()}.jpg`}
+            src={`/package/category/${category?.toLowerCase()}.jpg`}
             alt={category}
             className="w-full h-full object-cover"
           />
@@ -66,7 +111,7 @@ const CategoryPage = () => {
               <div className="h-px w-12 bg-yellow-400"></div>
             </div>
             <h1 className="text-4xl lg:text-6xl font-light text-white tracking-wider mb-4">
-              {category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              {category?.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
             </h1>
             <p className="text-xl text-gray-300 font-light">
               Discover Extraordinary Experiences
@@ -87,7 +132,7 @@ const CategoryPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPackages.map((pkg, index) => (
                 <motion.div
-                  key={index}
+                  key={pkg.id || index}
                   variants={itemVariants}
                   whileHover={{ y: -5 }}
                   className="bg-gradient-to-br from-slate-900/95 to-blue-900/95 backdrop-blur-sm rounded-lg overflow-hidden border border-yellow-400/10 shadow-xl cursor-pointer"
@@ -112,30 +157,12 @@ const CategoryPage = () => {
                     <p className="text-gray-300 font-light">{pkg.title}</p>
 
                     {/* Categories */}
-                    <div className="flex flex-wrap gap-2">
-                      {pkg.categories.map((cat, idx) => (
-                        <span
-                          key={idx}
-                          className="text-xs border border-yellow-400/20 text-yellow-400 px-3 py-1 rounded-full"
-                        >
-                          {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                        </span>
-                      ))}
-                    </div>
+                    {renderCategories(pkg.categories)}
 
                     {/* Included Destinations */}
                     <div className="space-y-3">
                       <h4 className="text-sm text-gray-100 tracking-wider">INCLUDED DESTINATIONS</h4>
-                      <ul className="space-y-2">
-                        {pkg.subPlaces.map((subPlace, idx) => (
-                          <li key={idx} className="text-sm text-gray-100 flex items-center group">
-                            <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
-                            <span className="font-light">
-                              {subPlace.name} <span className="text-gray-100">({subPlace.description})</span>
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                      {renderSubPlaces(pkg.subPlaces)}
                     </div>
                   </div>
                 </motion.div>

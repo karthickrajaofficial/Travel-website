@@ -25,11 +25,14 @@ import ProductsPage from "./pages/ProductsPage";
 import Accreditations from "./pages/Accreditations";
 import Work from "./pages/Work";
 import TestimonialsSection from "./pages/TestimonialsSection";
+import OurUniqueness from "./pages/OurUniqueness";
+import Card3DDemo from "./components/Card3DDemo";
+import FeatureSection from "./components/FeatureSection";
 
 const App = () => {
   return (
     <Router>
-        {/* <div className="min-h-screen bg-blue-50"> */}
+      {/* <div className="min-h-screen bg-blue-50"> */}
       {/* <TopBar /> */}
       <Navbar />
 
@@ -39,7 +42,7 @@ const App = () => {
         <Route path="/tours" element={<Tours />} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/testimonials" element={<GallerySection />} /> */}
-        <Route path="/testimonials" element={<TestimonialsSection/>} />
+        <Route path="/testimonials" element={<TestimonialsSection />} />
         {/* <Route path="/tour/:tourId" element={<TourDetail />} /> */}
         {/* <Route path="/details/:id" element={<Details />} /> */}
         <Route path="/:packageId" element={<PackageDetails />} />
@@ -49,6 +52,8 @@ const App = () => {
         <Route path="/about" element={<AboutSection />} />
         <Route path="/accreditations-&-awards" element={<Accreditations />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/explore" element={<FeatureSection />} />
+        <Route path="/our-uniqueness" element={<OurUniqueness />} />
         {/* <Route path="/" element={<TourPackages />} /> */}
         {/* <Route path="/:categoryName" element={<TourCategory />} /> */}
         {/* <Route path="/:categoryName" element={<TourCategory />} />   */}
