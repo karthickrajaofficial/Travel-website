@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { tourPackages, packageDescriptions } from '/src/data/Packages.js';  // Update the path to match your project structure
+import { tourPackages, packageDescriptions } from '../data/packages';  // Update the path to match your project structure
 import Banner from '../components/Banner';
 
 const TourDetail = () => {
