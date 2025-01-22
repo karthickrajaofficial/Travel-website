@@ -1,3 +1,4 @@
+
 // import React, { useState } from 'react';
 // import { motion } from 'framer-motion';
 // import { packages } from '../data/packages';
@@ -62,48 +63,38 @@
 //     setIsSubmitting(true);
 //     setSubmitStatus({ status: '', message: '' });
 
-//     // Create FormData object for Google Forms
-//     const googleFormData = new FormData();
-    
-//     // Map your form fields to Google Form fields
-//     // Replace 'entry.XXXXXXXX' with your actual Google Form field IDs
-//     googleFormData.append('entry.123456789', formData.name);        // Name field
-//     googleFormData.append('entry.987654321', formData.email);       // Email field
-//     googleFormData.append('entry.456789123', formData.phone);       // Phone field
-//     googleFormData.append('entry.789123456', formData.mainPackage); // Main Package field
-//     googleFormData.append('entry.321654987', formData.subPackage);  // Sub Package field
-//     googleFormData.append('entry.159753468', formData.numberOfPersons); // Number of Persons field
-//     googleFormData.append('entry.357951246', formData.monthOfTravel);   // Month of Travel field
-//     googleFormData.append('entry.852963741', formData.message);     // Message field
-
 //     try {
-//       // Replace with your Google Form URL
-//       const response = await fetch('https://forms.gle/qQ4xdAtjQv1Pb5UZ7', {
+//       const response = await fetch('https://travels-backend-fpkc.onrender.com/api/send-email', {
 //         method: 'POST',
-//         mode: 'no-cors', // Important for Google Forms
-//         body: googleFormData
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(formData)
 //       });
 
-//       // Since mode is 'no-cors', we can't actually check the response
-//       // We'll assume success if no error was thrown
-//       setSubmitStatus({
-//         status: 'success',
-//         message: 'Thank you for your inquiry! We will get back to you soon.'
-//       });
+//       const data = await response.json();
 
-//       // Reset form
-//       setFormData({
-//         name: '',
-//         email: '',
-//         phone: '',
-//         mainPackage: '',
-//         subPackage: '',
-//         numberOfPersons: '',
-//         monthOfTravel: '',
-//         message: ''
-//       });
-//       setSelectedMainPackage(null);
+//       if (response.ok) {
+//         setSubmitStatus({
+//           status: 'success',
+//           message: 'Thank you for your inquiry! We will get back to you soon.'
+//         });
 
+//         // Reset form
+//         setFormData({
+//           name: '',
+//           email: '',
+//           phone: '',
+//           mainPackage: '',
+//           subPackage: '',
+//           numberOfPersons: '',
+//           monthOfTravel: '',
+//           message: ''
+//         });
+//         setSelectedMainPackage(null);
+//       } else {
+//         throw new Error(data.error || 'Failed to send message');
+//       }
 //     } catch (error) {
 //       console.error('Submission error:', error);
 //       setSubmitStatus({
@@ -267,7 +258,7 @@
 //                     <option value="">Select Destination</option>
 //                     {packages.map(pkg => (
 //                       <option key={pkg.name} value={pkg.name}>
-//                         {pkg.name} 
+//                         {pkg.name}
 //                       </option>
 //                     ))}
 //                   </select>
@@ -288,7 +279,7 @@
 //                       <option value="">Select Sub Package</option>
 //                       {selectedMainPackage.subPlaces.map(subPlace => (
 //                         <option key={subPlace.name} value={subPlace.name}>
-//                           {subPlace.name} 
+//                           {subPlace.name}
 //                         </option>
 //                       ))}
 //                     </select>
@@ -361,6 +352,7 @@
 // };
 
 // export default Contact;
+// ===============ggl form =========
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { packages } from '../data/packages';
@@ -384,6 +376,9 @@ const itemVariants = {
     transition: { duration: 0.7 }
   }
 };
+
+// Google Sheets script URL
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyvJetI-mDIDbPtG6KLshEKq3Yvd7XZK1TicCA8dFXVTO3o1oKjLSlRrv8PGfjy2u6RYA/exec';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -420,53 +415,93 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ status: '', message: '' });
+// Update these two functions in your Contact component
 
-    try {
-      const response = await fetch('https://travels-backend-fpkc.onrender.com/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+const saveToGoogleSheets = async (formData) => {
+  try {
+    // Format the data as URL parameters
+    const params = new URLSearchParams({
+      name: formData.name || '',
+      email: formData.email || '',
+      phone: formData.phone || '',
+      mainPackage: formData.mainPackage || '',
+      subPackage: formData.subPackage || '',
+      numberOfPersons: formData.numberOfPersons || '',
+      monthOfTravel: formData.monthOfTravel || '',
+      message: formData.message || '',
+      timestamp: new Date().toISOString()
+    }).toString();
 
-      const data = await response.json();
+    // Construct the full URL with parameters
+    const url = `${GOOGLE_SHEETS_URL}?${params}`;
 
-      if (response.ok) {
-        setSubmitStatus({
-          status: 'success',
-          message: 'Thank you for your inquiry! We will get back to you soon.'
-        });
-
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          mainPackage: '',
-          subPackage: '',
-          numberOfPersons: '',
-          monthOfTravel: '',
-          message: ''
-        });
-        setSelectedMainPackage(null);
-      } else {
-        throw new Error(data.error || 'Failed to send message');
+    // Make the request
+    const response = await fetch(url, {
+      method: 'GET', // Change to GET request
+      mode: 'no-cors', // Keep no-cors mode
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
       }
-    } catch (error) {
-      console.error('Submission error:', error);
-      setSubmitStatus({
-        status: 'error',
-        message: 'Something went wrong. Please try again later.'
-      });
-    } finally {
-      setIsSubmitting(false);
+    });
+
+    return true;
+  } catch (error) {
+    console.error('Google Sheets Error:', error);
+    return false;
+  }
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitStatus({ status: '', message: '' });
+
+  try {
+    // 1. Save to Google Sheets first
+    await saveToGoogleSheets(formData);
+
+    // 2. Then send to backend API
+    const backendResponse = await fetch('https://travels-backend-fpkc.onrender.com/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (!backendResponse.ok) {
+      throw new Error('Failed to send message to backend');
     }
-  };
+
+    // Set success status
+    setSubmitStatus({
+      status: 'success',
+      message: 'Thank you for your inquiry! We will get back to you soon.'
+    });
+
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      mainPackage: '',
+      subPackage: '',
+      numberOfPersons: '',
+      monthOfTravel: '',
+      message: ''
+    });
+    setSelectedMainPackage(null);
+
+  } catch (error) {
+    console.error('Submission error:', error);
+    setSubmitStatus({
+      status: 'error',
+      message: 'Something went wrong. Please try again later.'
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-blue-950">
