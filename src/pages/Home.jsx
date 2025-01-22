@@ -8,6 +8,7 @@ import ExperienceCategories from './Categories';
 import OverlayCategories from '../components/OverlayCategories';
 import { ThreeDPhotoCarouselDemo } from '../components/ThreeDPhotoCarouselDemo';
 import ImageTrailDemo from '../components/ImageTrailDemo';
+import RollingGallery from '../components/animations/RollingGallery';
 
 const Home = () => {
   return (

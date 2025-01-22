@@ -1370,6 +1370,7 @@ import { ArrowRight, Globe } from 'lucide-react';
 import packages from '../data/packages';
 import FeaturedDestinations from './FeaturedDestinations';
 import TopAttractions from './TopAttractions';
+import RollingGallery from './animations/RollingGallery';
 
 const PackageDetails = () => {
   const { packageId } = useParams();
@@ -1509,6 +1510,13 @@ const PackageDetails = () => {
 
       {/* Featured Destinations */}
       <FeaturedDestinations subPlaces={safePackage.subPlaces} />
+      {/* <RollingGallery 
+  attractions={safePackage.topAttractions}
+  // cityName="Paris"
+  autoplay={true}
+  pauseOnHover={true}
+/> */}
+
     </div>
   );
 };

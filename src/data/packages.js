@@ -97,7 +97,7 @@ export const packages = [
       {
         id: 1,
         name: "Eiffel Tower",
-        image: "/package/effil.jpg",
+        image: "/attractions/effil.jpg",
         description: "Iconic iron lattice tower on the Champ de Mars",
         type: "Landmark",
         visitDuration: "2-3 hours",
@@ -106,7 +106,7 @@ export const packages = [
       {
         id: 2,
         name: "Notre-Dame Cathedral",
-        image: "/attractions/notre-dame.jpg",
+        image: "/attractions/Cathedral.jpg",
         description: "Medieval Catholic cathedral with Gothic architecture",
         type: "Historical",
         visitDuration: "1-2 hours",
@@ -115,7 +115,7 @@ export const packages = [
       {
         id: 3,
         name: "Palace of Versailles",
-        image: "/attractions/versailles.jpg",
+        image: "/attractions/Versailles.jpg",
         description: "Royal château with stunning gardens and Hall of Mirrors",
         type: "Palace",
         visitDuration: "Full day",
