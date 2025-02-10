@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import ScrollToTopLink from "./ScrollToTopLink";
 
 const FeatureSection = () => {
   const fadeInVariants = {
@@ -36,7 +36,7 @@ const FeatureSection = () => {
           {/* Mobile Layout */}
           <div className="sm:hidden grid grid-cols-2 gap-4">
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/paris">
+    <ScrollToTopLink  to="/paris">
       <img
         src="feature/01.jpg"
         alt="Explore Paris"
@@ -46,11 +46,11 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Paris</h2>
         {/* <p className="text-xs">Starting From $ 1,20,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/Switzerland">
+    <ScrollToTopLink  to="/Switzerland">
       <img
         src="feature/Switzerland.jpg"
         alt="Explore Switzerland"
@@ -60,11 +60,11 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Switzerland</h2>
         {/* <p className="text-xs">Starting From $ 1,90,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/Italy">
+    <ScrollToTopLink  to="/Italy">
       <img
         src="feature/Italy.jpg"
         alt="Italy"
@@ -74,11 +74,11 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Italy</h2>
         {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/london">
+    <ScrollToTopLink  to="/london">
       <img
         src="feature/London.jpg"
         alt="Explore London"
@@ -88,7 +88,7 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">London</h2>
         {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 </div>
 
@@ -96,7 +96,7 @@ const FeatureSection = () => {
           {/* Desktop Layout */}
           <div className="hidden sm:grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
             <div className=" rounded-lg overflow-hidden relative group">
-              <Link to="/paris">
+              <ScrollToTopLink  to="/paris">
                 <img
                   src="feature/01.jpg"
                   alt="Explore Paris"
@@ -109,12 +109,12 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Paris</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-              </Link>
+              </ScrollToTopLink >
             </div>
 
             <div>
               <div className=" rounded-lg overflow-hidden relative group mb-8">
-                <Link to="/Switzerland">
+                <ScrollToTopLink  to="/Switzerland">
                   <img
                     src="feature/Switzerland.jpg"
                     alt="Explore Switzerland"
@@ -127,11 +127,11 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Switzerland</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-                </Link>
+                </ScrollToTopLink >
               </div>
 
               <div className=" rounded-lg overflow-hidden relative group">
-                <Link to="/Italy">
+                <ScrollToTopLink  to="/Italy">
                   <img
                     src="feature/Italy.jpg"
                     alt="Italy"
@@ -144,12 +144,12 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Italy</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-                </Link>
+                </ScrollToTopLink >
               </div>
             </div>
 
             <div className=" rounded-lg overflow-hidden relative group">
-              <Link to="/london">
+              <ScrollToTopLink  to="/london">
                 <img
                   src="feature/London.jpg"
                   alt="Explore London"
@@ -162,7 +162,7 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">London</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-              </Link>
+              </ScrollToTopLink >
             </div>
           </div>
         </div>
@@ -172,7 +172,7 @@ const FeatureSection = () => {
           {/* Mobile Layout */}
           <div className="sm:hidden grid grid-cols-2 gap-4">
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/germany">
+    <ScrollToTopLink  to="/germany">
       <img
         src="feature/germany.jpg"
         alt="Explore Germany"
@@ -182,11 +182,11 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Germany</h2>
         {/* <p className="text-xs">Starting From $1,20,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/finland">
+    <ScrollToTopLink  to="/finland">
       <img
         src="feature/finland.jpg"
         alt="Explore Finland"
@@ -196,11 +196,11 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Finland</h2>
         {/* <p className="text-xs">Starting From $1,90,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/greece">
+    <ScrollToTopLink  to="/greece">
       <img
         src="feature/greece.jpg"
         alt="Explore Greece"
@@ -210,11 +210,11 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Greece</h2>
         {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 
   <div className="rounded-lg overflow-hidden relative group">
-    <Link to="/iceland">
+    <ScrollToTopLink  to="/iceland">
       <img
         src="feature/iceland.jpg"
         alt="Explore Iceland"
@@ -224,7 +224,7 @@ const FeatureSection = () => {
         <h2 className="text-lg font-bold">Iceland</h2>
         {/* <p className="text-xs">Starting From $1,50,000</p> */}
       </div>
-    </Link>
+    </ScrollToTopLink >
   </div>
 </div>
 
@@ -232,7 +232,7 @@ const FeatureSection = () => {
           {/* Desktop Layout */}
           <div className="hidden sm:grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg overflow-hidden relative group">
-              <Link to="/germany">
+              <ScrollToTopLink  to="/germany">
                 <img
                   src="feature/germany.jpg"
                   alt="Explore Germany"
@@ -245,12 +245,12 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Germany</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-              </Link>
+              </ScrollToTopLink >
             </div>
 
             <div>
               <div className="bg-white rounded-lg overflow-hidden relative group mb-8">
-                <Link to="/finland">
+                <ScrollToTopLink  to="/finland">
                   <img
                     src="feature/finland.jpg"
                     alt="Explore Finland"
@@ -263,11 +263,11 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Finland</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-                </Link>
+                </ScrollToTopLink >
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden relative group">
-                <Link to="/greece">
+                <ScrollToTopLink  to="/greece">
                   <img
                     src="feature/greece.jpg"
                     alt="Explore Greece"
@@ -280,12 +280,12 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Greece</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-                </Link>
+                </ScrollToTopLink >
               </div>
             </div>
 
             <div className="bg-white rounded-lg overflow-hidden relative group">
-              <Link to="/iceland">
+              <ScrollToTopLink  to="/iceland">
                 <img
                   src="feature/iceland.jpg"
                   alt="Explore Iceland"
@@ -298,7 +298,7 @@ const FeatureSection = () => {
                  <h2 className="text-white font-light tracking-wider text-base">Iceland</h2>
                   {/* <p className="text-gray-400 text-xs tracking-wide">Starting From € 190,000</p> */}
                  </div>
-              </Link>
+              </ScrollToTopLink >
             </div>
           </div>
         </div>

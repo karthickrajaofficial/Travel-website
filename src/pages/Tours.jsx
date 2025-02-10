@@ -351,60 +351,224 @@
 // import PackageCard from '../components/Tours/PackageCard';
 
 // Tours.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
+// import React from 'react';
+// import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
+// import ErrorBoundary from '../components/Tours/ErrorBoundary';
+// import TopSection from '../components/Tours/TopSection';
+// import PackageCard from '../components/Tours/PackageCard';
+// import AnimatedHeading from '../components/Tours/AnimatedHeading';
+// import allPackages from '../data/packages';
+
+// // Animation variants
+// const containerVariants = {
+//   hidden: { opacity: 0 },
+//   visible: { 
+//     opacity: 1, 
+//     transition: { duration: 0.2, staggerChildren: 0.1 } 
+//   }
+// };
+
+// // Styles for animations (consider moving to a CSS file)
+// const styles = `
+// @keyframes blob {
+//   0% {
+//     transform: translate(0px, 0px) scale(1);
+//   }
+//   33% {
+//     transform: translate(30px, -50px) scale(1.1);
+//   }
+//   66% {
+//     transform: translate(-20px, 20px) scale(0.9);
+//   }
+//   100% {
+//     transform: translate(0px, 0px) scale(1);
+//   }
+// }
+
+// .animate-blob {
+//   animation: blob 7s infinite;
+// }
+
+// .animation-delay-2000 {
+//   animation-delay: 2s;
+// }
+
+// .animation-delay-4000 {
+//   animation-delay: 4s;
+// }
+// `;
+
+// const TourCategory = () => {
+//   const navigate = useNavigate();
+
+//   if (!Array.isArray(allPackages) || !allPackages.length) {
+//     return (
+//       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 flex items-center justify-center">
+//         <div className="text-center text-gray-600">No tour packages available.</div>
+//       </div>
+//     );
+//   }
+
+//   const handleCategoryClick = (path) => {
+//     if (path) {
+//       navigate(path);
+//       window.scrollTo({ top: 0, behavior: 'smooth' });
+//     }
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-100">
+//       <TopSection />
+//       <div className="py-16 px-4 sm:px-6 lg:px-8">
+//         <motion.div
+//           variants={containerVariants}
+//           initial="hidden"
+//           animate="visible"
+//           className="max-w-7xl mx-auto space-y-20"
+//         >
+//           {/* Featured Packages Section */}
+//           <div>
+//             <AnimatedHeading text="Featured Packages" />
+//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//               {allPackages.map((category, index) => (
+//                 <PackageCard 
+//                   key={category.id || `featured-${index}`}
+//                   item={category}
+//                   onClick={() => handleCategoryClick(category.path)}
+//                 />
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Destination Sections */}
+//           {allPackages.map((category, categoryIndex) => {
+//             if (!category.subPlaces?.length) return null;
+
+//             return (
+//               <div key={category.id || `category-${categoryIndex}`}>
+//                 <AnimatedHeading text={`${category.name} Destinations`} />
+//                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//                   {category.subPlaces.map((subPlace, subIndex) => (
+//                     <PackageCard 
+//                       key={subPlace.id || `${categoryIndex}-${subIndex}`}
+//                       item={subPlace}
+//                       onClick={() => handleCategoryClick(subPlace.path)}
+//                     />
+//                   ))}
+//                 </div>
+//               </div>
+//             );
+//           })}
+//         </motion.div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const Tours = () => (
+//   <ErrorBoundary>
+//     <div className="bg-gradient-to-b from-blue-50 to-purple-100">
+//       <TourCategory />
+//     </div>
+//   </ErrorBoundary>
+// );
+
+// export default Tours;
+import React, { memo, useMemo, lazy, Suspense } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ErrorBoundary from '../components/Tours/ErrorBoundary';
-import TopSection from '../components/Tours/TopSection';
-import PackageCard from '../components/Tours/PackageCard';
-import AnimatedHeading from '../components/Tours/AnimatedHeading';
 import allPackages from '../data/packages';
 
-// Animation variants
+// Lazy load components that aren't immediately visible
+const TopSection = lazy(() => import('../components/Tours/TopSection'));
+const AnimatedHeading = lazy(() => import('../components/Tours/AnimatedHeading'));
+
+// Optimized animation variants with reduced durations
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1, 
-    transition: { duration: 0.5, staggerChildren: 0.2 } 
+    transition: { duration: 0.3, staggerChildren: 0.1 }
   }
 };
 
-// Styles for animations (consider moving to a CSS file)
-const styles = `
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-}
+// Memoized PackageCard component
+const PackageCard = memo(({ item, onClick }) => {
+  if (!item?.name || !item?.image || !item?.path) return null;
 
-.animate-blob {
-  animation: blob 7s infinite;
-}
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="group relative bg-gradient-to-br from-white to-blue-50 cursor-pointer 
+                 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-lg 
+                 overflow-hidden"
+      onClick={onClick}
+      layoutId={item.id}
+    >
+      <div className="relative h-56 overflow-hidden">
+        <img
+          src={`/package/${item.image}`}
+          alt={item.name}
+          className="w-full h-full object-cover transition-transform duration-700 
+                     group-hover:scale-110"
+          loading="lazy"
+        />
+      </div>
+      <div className="p-8">
+        <h3 className="text-xl font-medium text-blue-900 tracking-wide mb-2 
+                     group-hover:text-blue-600 transition-colors">
+          {item.name}
+        </h3>
+        <div className="mt-6 pt-6 border-t border-gray-200">
+          <span className="text-sm text-blue-600 hover:text-blue-800 tracking-wider 
+                        transition-colors font-medium inline-block">
+            EXPLORE DESTINATION →
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  );
+});
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
+// Memoized destination section
+const DestinationSection = memo(({ category, categoryIndex, onCategoryClick }) => {
+  if (!category.subPlaces?.length) return null;
 
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-`;
+  return (
+    <div key={category.id || `category-${categoryIndex}`}>
+      <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded"/>}>
+        <AnimatedHeading text={`${category.name} Destinations`} />
+      </Suspense>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {category.subPlaces.map((subPlace, subIndex) => (
+          <PackageCard 
+            key={subPlace.id || `${categoryIndex}-${subIndex}`}
+            item={subPlace}
+            onClick={() => onCategoryClick(subPlace.path)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+});
 
 const TourCategory = () => {
   const navigate = useNavigate();
 
-  if (!Array.isArray(allPackages) || !allPackages.length) {
+  // Memoize packages validation
+  const validPackages = useMemo(() => {
+    return Array.isArray(allPackages) && allPackages.length > 0;
+  }, []);
+
+  if (!validPackages) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 
+                      flex items-center justify-center">
         <div className="text-center text-gray-600">No tour packages available.</div>
       </div>
     );
@@ -413,65 +577,69 @@ const TourCategory = () => {
   const handleCategoryClick = (path) => {
     if (path) {
       navigate(path);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Use requestAnimationFrame to ensure scroll happens after navigation
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
     }
   };
 
+  // Memoize featured packages section
+  const FeaturedPackages = useMemo(() => (
+    <div>
+      <Suspense fallback={<div className="h-8 bg-gray-200 animate-pulse rounded"/>}>
+        <AnimatedHeading text="Featured Packages" />
+      </Suspense>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allPackages.map((category, index) => (
+          <PackageCard 
+            key={category.id || `featured-${index}`}
+            item={category}
+            onClick={() => handleCategoryClick(category.path)}
+          />
+        ))}
+      </div>
+    </div>
+  ), [allPackages]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-100">
-      <TopSection />
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-7xl mx-auto space-y-20"
-        >
-          {/* Featured Packages Section */}
-          <div>
-            <AnimatedHeading text="Featured Packages" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allPackages.map((category, index) => (
-                <PackageCard 
-                  key={category.id || `featured-${index}`}
-                  item={category}
-                  onClick={() => handleCategoryClick(category.path)}
-                />
-              ))}
-            </div>
-          </div>
+      <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+        <TopSection />
+      </Suspense>
+      
+      <div className="pt-8 pb-16 px-4 sm:px-6 lg:px-8">
+        <AnimatePresence>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-7xl mx-auto space-y-20"
+          >
+            {FeaturedPackages}
 
-          {/* Destination Sections */}
-          {allPackages.map((category, categoryIndex) => {
-            if (!category.subPlaces?.length) return null;
-
-            return (
-              <div key={category.id || `category-${categoryIndex}`}>
-                <AnimatedHeading text={`${category.name} Destinations`} />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {category.subPlaces.map((subPlace, subIndex) => (
-                    <PackageCard 
-                      key={subPlace.id || `${categoryIndex}-${subIndex}`}
-                      item={subPlace}
-                      onClick={() => handleCategoryClick(subPlace.path)}
-                    />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </motion.div>
+            {allPackages.map((category, categoryIndex) => (
+              <DestinationSection
+                key={category.id || `category-${categoryIndex}`}
+                category={category}
+                categoryIndex={categoryIndex}
+                onCategoryClick={handleCategoryClick}
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
 };
 
-const Tours = () => (
+// Memoize the entire Tours component
+const Tours = memo(() => (
   <ErrorBoundary>
     <div className="bg-gradient-to-b from-blue-50 to-purple-100">
       <TourCategory />
     </div>
   </ErrorBoundary>
-);
+));
 
 export default Tours;

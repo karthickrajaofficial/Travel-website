@@ -229,32 +229,38 @@ function ThreeDPhotoCarousel({ onCategorySelect }) {
             transition={transitionOverlay}
           >
             <motion.div className="relative">
-              <motion.img
-                layoutId={`img-${activeCategory.id}`}
-                src={activeCategory.image}
-                alt={activeCategory.title}
-                className="max-w-full max-h-full rounded-lg shadow-lg "
-                initial={{ scale: 0.5 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  delay: 0.5,
-                  duration: 0.5,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-                style={{
-                  willChange: "transform",
-                }}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">
-                  {activeCategory.title}
-                </span>
-              </div>
-            </motion.div>
+  <motion.img
+    layoutId={`img-${activeCategory.id}`}
+    src={activeCategory.image}
+    alt={activeCategory.title}
+    className="max-w-full max-h-full rounded-lg shadow-lg"
+    initial={{ scale: 0.5 }}
+    animate={{ scale: 1 }}
+    transition={{
+      delay: 0.5,
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    }}
+    style={{
+      willChange: "transform",
+    }}
+  />
+  <motion.div
+    className="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    whileHover={{ opacity: 0.7 }}
+  >
+    <span className="text-white text-2xl font-bold">
+      {activeCategory.title}
+    </span>
+  </motion.div>
+</motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[200px] w-full overflow-hidden ">
+      <div className="relative rounded-lg h-[200px] w-full overflow-hidden ">
         <Carousel
           handleClick={handleClick}
           controls={controls}

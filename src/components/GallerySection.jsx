@@ -265,7 +265,7 @@ const GallerySection = () => {
           </div>
         </div>
         <Card3DDemo/>
-              <ImageTrailDemo/>
+              {/* <ImageTrailDemo/> */}
         
         {/* Bottom CTA */}
         <div className="text-center mt-16">

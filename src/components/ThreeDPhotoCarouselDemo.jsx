@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom'
 export function ThreeDPhotoCarouselDemo() {
     const navigate = useNavigate() 
   const handleCategorySelect = (category) => {
-    navigate(`/category/${category.mainCategory}`);
+   { navigate(`/category/${category.mainCategory}`);
+   window.scrollTo(0, 0);
+  };
   }
 
   return (

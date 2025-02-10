@@ -25,7 +25,7 @@ const Home = () => {
       {/* <PackageSection /> */}
       <GallerySection />
       {/* <ImageTrailDemo/> */}
-      {/* <OfferSection /> */}
+      <OfferSection />
       {/* <Testimonial /> */}
     </div>
   );
